@@ -19,5 +19,7 @@ HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui
 
-DISTFILES += \
-    logo.jpg
+DISTFILES +=
+
+RESOURCES += \
+    resource.qrc
