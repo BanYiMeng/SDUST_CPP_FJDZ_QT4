@@ -23,7 +23,7 @@
    <string>       飞机Dark♂战   </string>
   </property>
   <property name="windowIcon">
-   <iconset>
+   <iconset theme="def">
     <normaloff>logo.jpg</normaloff>logo.jpg</iconset>
   </property>
   <property name="autoFillBackground">
@@ -33,17 +33,6 @@
    <property name="cursor">
     <cursorShape>CrossCursor</cursorShape>
    </property>
-  </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <property name="cursor">
-    <cursorShape>CrossCursor</cursorShape>
-   </property>
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar">
    <property name="cursor">
