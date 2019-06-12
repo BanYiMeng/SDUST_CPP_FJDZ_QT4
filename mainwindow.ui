@@ -14,10 +14,10 @@
    <cursorShape>CrossCursor</cursorShape>
   </property>
   <property name="mouseTracking">
-   <bool>true</bool>
+   <bool>false</bool>
   </property>
   <property name="acceptDrops">
-   <bool>true</bool>
+   <bool>false</bool>
   </property>
   <property name="windowTitle">
    <string>       飞机Dark♂战   </string>
@@ -26,16 +26,54 @@
    <iconset>
     <normaloff>resource/logo.jpg</normaloff>resource/logo.jpg</iconset>
   </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">border-image:url(:/resource/background.jpg);</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <property name="cursor">
     <cursorShape>CrossCursor</cursorShape>
    </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>40</y>
+      <width>300</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(:/resource/-1.png);
+background-color:rgba(100, 100, 100, 80);
+border:none;
+font: 16pt &quot;Droid Sans Fallback&quot;;
+border-radius:5px;</string>
+    </property>
+    <property name="text">
+     <string>START</string>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
