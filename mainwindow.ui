@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="cursor">
-   <cursorShape>CrossCursor</cursorShape>
+   <cursorShape>ArrowCursor</cursorShape>
   </property>
   <property name="mouseTracking">
    <bool>false</bool>
@@ -37,7 +37,7 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <property name="cursor">
-    <cursorShape>CrossCursor</cursorShape>
+    <cursorShape>ArrowCursor</cursorShape>
    </property>
    <property name="styleSheet">
     <string notr="true"/>
@@ -52,7 +52,7 @@
      </rect>
     </property>
     <property name="cursor">
-     <cursorShape>CrossCursor</cursorShape>
+     <cursorShape>OpenHandCursor</cursorShape>
     </property>
     <property name="layoutDirection">
      <enum>Qt::LeftToRight</enum>
