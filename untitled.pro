@@ -26,3 +26,5 @@ DISTFILES +=
 
 RESOURCES += \
     resource.qrc
+
+QMAKE_CXXFLAGS += -o2 -pipe
