@@ -74,6 +74,29 @@ border-radius:5px;</string>
      <bool>false</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="Cg">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>20</y>
+      <width>60</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(:/resource/-1.png);
+background-color:rgba(100, 100, 100, 80);
+border:none;
+font: 16pt &quot;Droid Sans Fallback&quot;;
+border-radius:15px;</string>
+    </property>
+    <property name="text">
+     <string>CG</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

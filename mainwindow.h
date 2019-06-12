@@ -15,8 +15,12 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void on_Cg_clicked();
+
 private:
     Ui::MainWindow *ui;
+    bool cg=false;
 };
 
 #endif // MAINWINDOW_H

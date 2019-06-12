@@ -6,7 +6,7 @@
 
 QT       += core gui
 #QT       += phonon
-#QT       += webkit
+QT       += webkit
 QT       += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -27,4 +27,4 @@ DISTFILES +=
 RESOURCES += \
     resource.qrc
 
-QMAKE_CXXFLAGS += -os -pipe
+QMAKE_CXXFLAGS += -os -pipe -std=c++11
