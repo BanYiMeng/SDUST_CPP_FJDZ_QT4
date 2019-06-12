@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     shadowEffect->setOffset(0,0);
     shadowEffect->setColor(QColor(0,0,0));
     shadowEffect->setBlurRadius(10);
-    ui->pushButton->setGraphicsEffect(shadowEffect);
+    ui->Starter->setGraphicsEffect(shadowEffect);
 }
 
 MainWindow::~MainWindow()
