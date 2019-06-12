@@ -1,10 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QGraphicsDropShadowEffect>
-#include <QFrame>
-#include <QWidget>
-#include <QRect>
-#include <QPainter>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
