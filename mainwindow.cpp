@@ -5,6 +5,7 @@
 #include <QUrl>
 #include <QWidget>
 #include <QMessageBox>
+#include <QtCore>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -17,6 +18,8 @@ MainWindow::MainWindow(QWidget *parent) :
     shadowEffect->setBlurRadius(10);
     ui->Starter->setGraphicsEffect(shadowEffect);
     ui->Cg->setGraphicsEffect(shadowEffect);
+    mp=new QWebView;
+    mp->load(QUrl("https://test-1254946716.cos.ap-chongqing.myqcloud.com/main-bgm.mp3"));
     connect(ui->Cg,SIGNAL(clicked()),this,SLOT(on_Cg_clicked()));
     cg=false;
 }
@@ -30,10 +33,21 @@ void MainWindow::on_Cg_clicked()
 {
     if (cg==false)
     {
+    delete mp;
     cg=true;
-    QWebView *wv=new QWebView;
+    wv=new QWebView;
     wv->setAttribute(Qt::WA_DeleteOnClose);
     wv->load(QUrl("https://test-1254946716.cos.ap-chongqing.myqcloud.com/cg.mp4"));
-    wv->showMaximized();
+    wv->showFullScreen();
+    QTimer *end=new QTimer(this);
+    end->start(210001);
+    connect(end,SIGNAL(timeout()),this,SLOT(generic()));
     }
+}
+
+void MainWindow::generic()
+{
+    delete wv;
+    mp=new QWebView;
+    mp->load(QUrl("https://test-1254946716.cos.ap-chongqing.myqcloud.com/main-bgm.mp3"));
 }
