@@ -61,11 +61,21 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:url(:/resource/-1.png);
+     <string notr="true">QPushButton{
+border-image:url(:/resource/-1.png);
 background-color:rgba(100, 100, 100, 80);
 border:none;
 font: 16pt &quot;Droid Sans Fallback&quot;;
-border-radius:5px;</string>
+border-radius:5px;
+}
+
+QPushButton:hover{
+background-color:rgba(100, 100, 100, 85);
+}
+
+QPushButton:pressed{
+background-color:rgba(100, 100, 100, 100);
+}</string>
     </property>
     <property name="text">
      <string>START</string>
@@ -87,11 +97,22 @@ border-radius:5px;</string>
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:url(:/resource/-1.png);
+     <string notr="true">QPushButton{
+border-image:url(:/resource/-1.png);
 background-color:rgba(100, 100, 100, 80);
 border:none;
 font: 16pt &quot;Droid Sans Fallback&quot;;
-border-radius:15px;</string>
+border-radius:15px;
+}
+
+QPushButton:hover{
+background-color:rgba(100, 100, 100, 85);
+}
+
+QPushButton:pressed{
+background-color:rgba(100, 100, 100, 100);
+}
+</string>
     </property>
     <property name="text">
      <string>CG</string>

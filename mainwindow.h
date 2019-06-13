@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QWebView>
+#include <QtCore>
 
 namespace Ui {
 class MainWindow;
@@ -26,6 +27,7 @@ private:
     bool cg=false;
     QWebView *wv;
     QWebView *mp;
+    QTimer *end;
 };
 
 #endif // MAINWINDOW_H

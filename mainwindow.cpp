@@ -21,7 +21,6 @@ MainWindow::MainWindow(QWidget *parent) :
     mp=new QWebView;
     mp->load(QUrl("https://test-1254946716.cos.ap-chongqing.myqcloud.com/main-bgm.mp3"));
     connect(ui->Cg,SIGNAL(clicked()),this,SLOT(on_Cg_clicked()));
-    cg=false;
 }
 
 MainWindow::~MainWindow()
@@ -39,7 +38,7 @@ void MainWindow::on_Cg_clicked()
     wv->setAttribute(Qt::WA_DeleteOnClose);
     wv->load(QUrl("https://test-1254946716.cos.ap-chongqing.myqcloud.com/cg.mp4"));
     wv->showFullScreen();
-    QTimer *end=new QTimer(this);
+    end=new QTimer(this);
     end->start(210001);
     connect(end,SIGNAL(timeout()),this,SLOT(generic()));
     }
@@ -48,6 +47,8 @@ void MainWindow::on_Cg_clicked()
 void MainWindow::generic()
 {
     delete wv;
+    delete end;
     mp=new QWebView;
     mp->load(QUrl("https://test-1254946716.cos.ap-chongqing.myqcloud.com/main-bgm.mp3"));
+    cg=false;
 }
