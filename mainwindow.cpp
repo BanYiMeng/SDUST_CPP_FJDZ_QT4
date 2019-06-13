@@ -33,7 +33,7 @@ void MainWindow::on_Cg_clicked()
     cg=true;
     QWebView *wv=new QWebView;
     wv->setAttribute(Qt::WA_DeleteOnClose);
-    wv->load(QUrl("https://test-1254946716.cos.ap-chongqing.myqcloud.com/video.mp4"));
+    wv->load(QUrl("https://test-1254946716.cos.ap-chongqing.myqcloud.com/cg.mp4"));
     wv->showMaximized();
     }
 }
