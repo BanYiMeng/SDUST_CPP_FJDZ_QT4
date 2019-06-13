@@ -6,6 +6,7 @@
 #include <QWidget>
 #include <QMessageBox>
 #include <QtCore>
+#include <QString>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -21,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
     mp=new QWebView;
     mp->load(QUrl("https://test-1254946716.cos.ap-chongqing.myqcloud.com/main-bgm.mp3"));
     connect(ui->Cg,SIGNAL(clicked()),this,SLOT(on_Cg_clicked()));
+    connect(ui->About,SIGNAL(clicked()),this,SLOT(on_About_clicked()));
 }
 
 MainWindow::~MainWindow()
@@ -30,25 +32,43 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_Cg_clicked()
 {
-    if (cg==false)
+    if (duo==false)
     {
     delete mp;
-    cg=true;
+    duo=true;
     wv=new QWebView;
     wv->setAttribute(Qt::WA_DeleteOnClose);
     wv->load(QUrl("https://test-1254946716.cos.ap-chongqing.myqcloud.com/cg.mp4"));
     wv->showFullScreen();
     end=new QTimer(this);
     end->start(210001);
-    connect(end,SIGNAL(timeout()),this,SLOT(generic()));
+    connect(end,SIGNAL(timeout()),this,SLOT(Exit_Cg()));
     }
 }
 
-void MainWindow::generic()
+void MainWindow::Exit_Cg()
 {
     delete wv;
     delete end;
     mp=new QWebView;
     mp->load(QUrl("https://test-1254946716.cos.ap-chongqing.myqcloud.com/main-bgm.mp3"));
-    cg=false;
+    duo=false;
+}
+
+void MainWindow::on_About_clicked()
+{
+    if (duo==false)
+    {
+    duo=true;
+    QMessageBox::about(NULL,QString::fromUtf8("关于"),QString::fromUtf8("制作:奚浩然,王崇霖,颜伯同"));
+    end=new QTimer(this);
+    end->start(1001);
+    connect(end,SIGNAL(timeout()),this,SLOT(Exit_About()));
+    }
+}
+
+void MainWindow::Exit_About()
+{
+    delete end;
+    duo=false;
 }

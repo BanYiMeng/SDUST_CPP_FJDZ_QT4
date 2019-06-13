@@ -48,7 +48,7 @@
       <x>40</x>
       <y>40</y>
       <width>300</width>
-      <height>100</height>
+      <height>200</height>
      </rect>
     </property>
     <property name="cursor">
@@ -65,7 +65,7 @@
 border-image:url(:/resource/-1.png);
 background-color:rgba(100, 100, 100, 80);
 border:none;
-font: 16pt &quot;Droid Sans Fallback&quot;;
+font: 18pt &quot;Droid Sans Fallback&quot;;
 border-radius:5px;
 }
 
@@ -116,6 +116,36 @@ background-color:rgba(100, 100, 100, 100);
     </property>
     <property name="text">
      <string>CG</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="About">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>270</y>
+      <width>300</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+border-image:url(:/resource/-1.png);
+background-color:rgba(100, 100, 100, 80);
+border:none;
+font: 18pt &quot;Droid Sans Fallback&quot;;
+border-radius:5px;
+}
+
+QPushButton:hover{
+background-color:rgba(100, 100, 100, 85);
+}
+
+QPushButton:pressed{
+background-color:rgba(100, 100, 100, 100);
+}</string>
+    </property>
+    <property name="text">
+     <string>ABOUT</string>
     </property>
    </widget>
   </widget>

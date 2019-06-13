@@ -20,11 +20,15 @@ public:
 private slots:
     void on_Cg_clicked();
 
-    void generic ();
+    void Exit_Cg();
+
+    void on_About_clicked();
+
+    void Exit_About();
 
 private:
     Ui::MainWindow *ui;
-    bool cg=false;
+    bool duo=false;
     QWebView *wv;
     QWebView *mp;
     QTimer *end;
