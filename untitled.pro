@@ -16,9 +16,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    flyobject.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    flyobject.h
 
 FORMS    += mainwindow.ui
 
