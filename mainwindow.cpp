@@ -5,7 +5,6 @@
 #include <QUrl>
 #include <QWidget>
 #include <QMessageBox>
-#include <QtCore>
 #include <QString>
 
 MainWindow::MainWindow(QWidget *parent) :
