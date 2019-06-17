@@ -1,7 +1,7 @@
 #ifndef FLYER_H
 #define FLYER_H
 
-#include"flyobjects"
+#include"flyobjects.h"
 #include <QMainWindow>
 #include <QObject>
 #include <QWidget>

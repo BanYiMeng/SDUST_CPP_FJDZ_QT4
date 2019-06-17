@@ -79,6 +79,7 @@ void MainWindow::on_Starter_clicked()
     if (duo==false)
     {
     duo=true;
+    MainWindow::close();
     p->show();
     end=new QTimer(this);
     end->start(1001);
