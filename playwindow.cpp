@@ -6,7 +6,7 @@ playwindow::playwindow(QWidget *parent) :
     ui(new Ui::playwindow)
 {
     ui->setupUi(this);
-    f=new flyer(0,0,0,0,0,0,0);
+    f=new flyer(1,1,0,0,0,0,0);
 }
 
 playwindow::~playwindow()
