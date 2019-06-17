@@ -1,12 +1,6 @@
 #include "mainwindow.h"
-#include "flyobjects.h"
-#include "playwindow.h"
 #include <QApplication>
 #include <QWidget>
-#include <QButtonGroup>
-#include <QGraphicsDropShadowEffect>
-#include <QtWebKit> //libqtwebkit-dev
-#include <QUrl>
 
 //#include <phonon>
 

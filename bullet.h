@@ -4,11 +4,14 @@
 #include <QMainWindow>
 #include <QObject>
 #include <QWidget>
+#include <QPrinter>
+#include <QGraphicsItem>
+#include "flyobjects.h"
 
-class bullet
+class Bullet:public flyobjects
 {
 public:
-    bullet();
+    Bullet(int,int,int,int,int,int,int,const QPixmap *, QGraphicsScene *, QGraphicsItem *);
 };
 
 #endif // BULLET_H

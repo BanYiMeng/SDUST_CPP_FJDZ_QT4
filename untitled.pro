@@ -20,25 +20,25 @@ SOURCES += main.cpp\
     flyobjects.cpp \
     playwindow.cpp \
     flyer.cpp \
-    bullet.cpp \
     supply.cpp \
     background.cpp \
     special.cpp \
     enemy.cpp \
     boss.cpp \
-    chapter.cpp
+    chapter.cpp \
+    bullet.cpp
 
 HEADERS  += mainwindow.h \
     flyobjects.h \
     playwindow.h \
     flyer.h \
-    bullet.h \
     supply.h \
     background.h \
     special.h \
     enemy.h \
     boss.h \
-    chapter.h
+    chapter.h \
+    bullet.h
 
 FORMS    += mainwindow.ui \
     playwindow.ui
