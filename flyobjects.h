@@ -9,6 +9,8 @@ class flyobjects
 {
 public:
     flyobjects();
+private:
+    int x,y,w,h,lt,sc,sp;//lt=lifetime,sc=score,sp=speed
 };
 
 #endif // FLYOBJECTS_H
