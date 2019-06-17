@@ -18,11 +18,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     flyobjects.cpp \
-    playwindow.cpp
+    playwindow.cpp \
+    flyer.cpp
 
 HEADERS  += mainwindow.h \
     flyobjects.h \
-    playwindow.h
+    playwindow.h \
+    flyer.h
 
 FORMS    += mainwindow.ui \
     playwindow.ui
