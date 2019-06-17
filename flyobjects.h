@@ -8,7 +8,7 @@
 class flyobjects
 {
 public:
-    flyobjects();
+    flyobjects(int,int,int,int,int,int,int);
 private:
     int x,y,w,h,lt,sc,sp;//lt=lifetime,sc=score,sp=speed
 };

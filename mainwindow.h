@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QWebView>
 #include <QtCore>
+#include "playwindow.h"
+
 
 namespace Ui {
 class MainWindow;
@@ -26,12 +28,16 @@ private slots:
 
     void Exit_About();
 
+    void on_Starter_clicked();
+
+    void Exit_Game();
 private:
     Ui::MainWindow *ui;
     bool duo=false;
     QWebView *wv;
     QWebView *mp;
     QTimer *end;
+    playwindow *p;
 };
 
 #endif // MAINWINDOW_H

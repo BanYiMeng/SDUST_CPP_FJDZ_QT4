@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "flyobjects.h"
+#include "playwindow.h"
 #include <QApplication>
 #include <QWidget>
 #include <QButtonGroup>
