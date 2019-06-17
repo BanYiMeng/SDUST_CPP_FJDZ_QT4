@@ -8,10 +8,8 @@
 
 class flyer : public flyobjects
 {
-private:
-
 public:
-    flyer();
+    flyer(int,int,int,int,int,int,int);
 };
 
 #endif // FLYER_H
