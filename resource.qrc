@@ -3,5 +3,9 @@
         <file>resource/logo.jpg</file>
         <file>resource/background.jpg</file>
         <file>resource/-1.png</file>
+        <file>resource/bullet_l1.png</file>
+        <file>resource/bullet_l2.png</file>
+        <file>resource/missile.png</file>
+        <file>resource/user.png</file>
     </qresource>
 </RCC>
