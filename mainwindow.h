@@ -31,6 +31,8 @@ private slots:
     void on_Starter_clicked();
 
     void Exit_Game();
+    void Reboot();
+
 private:
     Ui::MainWindow *ui;
     bool duo=false;

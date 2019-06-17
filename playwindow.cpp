@@ -48,3 +48,8 @@ void playwindow::keyReleaseEvent(QKeyEvent *ev){
     }
     QWidget::keyReleaseEvent(ev);
 }
+
+void playwindow::closeEvent(QCloseEvent *event)
+{
+    emit exited();
+}

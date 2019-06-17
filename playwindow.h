@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QKeyEvent>
+#include  <QCloseEvent>
 #include "flyer.h"
 
 namespace Ui {
@@ -21,6 +22,9 @@ public:
 private:
     Ui::playwindow *ui;
     flyer *f;
+    void closeEvent(QCloseEvent *);
+signals:
+    void exited();
 };
 
 #endif // PLAYWINDOW_H

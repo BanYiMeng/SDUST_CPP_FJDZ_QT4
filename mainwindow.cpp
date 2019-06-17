@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->Starter->setGraphicsEffect(shadowEffect);
     ui->Cg->setGraphicsEffect(shadowEffect);
     mp=new QWebView;
-    p=new playwindow;
+    p=new playwindow();
     mp->load(QUrl("https://test-1254946716.cos.ap-chongqing.myqcloud.com/main-bgm.mp3"));
     connect(ui->Cg,SIGNAL(clicked()),this,SLOT(on_Cg_clicked()));
     connect(ui->About,SIGNAL(clicked()),this,SLOT(on_About_clicked()));
@@ -80,15 +80,23 @@ void MainWindow::on_Starter_clicked()
     {
     duo=true;
     MainWindow::close();
+    delete mp;
     p->show();
     end=new QTimer(this);
     end->start(1001);
     connect(end,SIGNAL(timeout()),this,SLOT(Exit_Game()));
     }
+    connect(p,SIGNAL(exited()),this,SLOT(Reboot()));
 }
 
 void MainWindow::Exit_Game()
 {
     delete end;
     duo=false;
+}
+
+void MainWindow::Reboot()
+{
+    this->show();
+    delete p;
 }
