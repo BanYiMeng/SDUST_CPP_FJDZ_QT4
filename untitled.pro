@@ -17,12 +17,15 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    flyobjects.cpp
+    flyobjects.cpp \
+    playwindow.cpp
 
 HEADERS  += mainwindow.h \
-    flyobjects.h
+    flyobjects.h \
+    playwindow.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    playwindow.ui
 
 DISTFILES +=
 
