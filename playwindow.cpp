@@ -6,6 +6,7 @@ playwindow::playwindow(QWidget *parent) :
     ui(new Ui::playwindow)
 {
     ui->setupUi(this);
+    this->setWindowIcon(QIcon(":/resource/logo.jpg"));
     f=new flyer(1,1,0,0,0,0,0);
     connect(this,SIGNAL(ended()),this,SLOT(endchoice()));
 }
