@@ -78,12 +78,12 @@ void MainWindow::on_Starter_clicked()
     p->show();
     end=new QTimer(this);
     end->start(1001);
-    connect(end,SIGNAL(timeout()),this,SLOT(Exit_Game()));
+    connect(end,SIGNAL(timeout()),this,SLOT(Exit_Starter()));
     }
     connect(p,SIGNAL(exited()),this,SLOT(Reboot()));
 }
 
-void MainWindow::Exit_Game()
+void MainWindow::Exit_Starter()
 {
     mp=new QWebView;
     mp->load(QUrl("https://test-1254946716.cos.ap-chongqing.myqcloud.com/main-bgm.mp3"));

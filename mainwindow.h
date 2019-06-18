@@ -1,12 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
 #include <QtCore>
 #include <QGraphicsDropShadowEffect>
 #include <QtWebKit>
 #include <QUrl>
-#include <QString>
 #include "playwindow.h"
 
 
@@ -33,7 +31,7 @@ private slots:
 
     void on_Starter_clicked();
 
-    void Exit_Game();
+    void Exit_Starter();
     void Reboot();
 
 private:
