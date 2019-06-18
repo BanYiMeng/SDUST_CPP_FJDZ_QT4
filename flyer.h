@@ -2,10 +2,6 @@
 #define FLYER_H
 
 #include"flyobjects.h"
-#include <QMainWindow>
-#include <QObject>
-#include <QWidget>
-#include <QString>
 
 typedef enum {UP, DOWN, LEFT, RIGHT} CHECK_FLAG;
 

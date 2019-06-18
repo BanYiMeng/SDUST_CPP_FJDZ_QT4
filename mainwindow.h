@@ -6,8 +6,6 @@
 #include <QGraphicsDropShadowEffect>
 #include <QtWebKit>
 #include <QUrl>
-#include <QWidget>
-#include <QMessageBox>
 #include <QString>
 #include "playwindow.h"
 

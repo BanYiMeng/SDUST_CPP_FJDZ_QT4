@@ -1,9 +1,8 @@
 #ifndef PLAYWINDOW_H
 #define PLAYWINDOW_H
 
-#include <QWidget>
 #include <QKeyEvent>
-#include  <QCloseEvent>
+#include <QCloseEvent>
 #include <QMessageBox>
 #include "flyer.h"
 
