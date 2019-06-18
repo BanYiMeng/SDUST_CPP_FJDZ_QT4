@@ -63,7 +63,7 @@ void playwindow::closeEvent(QCloseEvent *event)
 
 void playwindow::endchoice()
 {
-    QMessageBox::StandardButton ans=QMessageBox::warning(NULL,QString::fromUtf8("警告"),QString::fromUtf8("是否退出游戏"),QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
+    QMessageBox::StandardButton ans=QMessageBox::warning(NULL,QString::fromUtf8("警告"),QString::fromUtf8("是否退出对局"),QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
     if(ans == QMessageBox::Yes)
     {
         close();
