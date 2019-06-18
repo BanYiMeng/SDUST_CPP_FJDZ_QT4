@@ -7,6 +7,7 @@ playwindow::playwindow(QWidget *parent) :
 {
     ui->setupUi(this);
     f=new flyer(1,1,0,0,0,0,0);
+    connect(this,SIGNAL(ended()),this,SLOT(endchoice()));
 }
 
 playwindow::~playwindow()
@@ -31,8 +32,13 @@ void playwindow::keyPressEvent(QKeyEvent *ev){
     {
         f->move("right");
     }
+    if(ev->key() == Qt::Key_Escape)
+    {
+        emit ended();
+    }
     QWidget::keyPressEvent(ev);
 }
+
 void playwindow::keyReleaseEvent(QKeyEvent *ev){
     if(ev->key() == Qt::Key_W)
     {
@@ -52,4 +58,13 @@ void playwindow::keyReleaseEvent(QKeyEvent *ev){
 void playwindow::closeEvent(QCloseEvent *event)
 {
     emit exited();
+}
+
+void playwindow::endchoice()
+{
+    QMessageBox::StandardButton ans=QMessageBox::warning(NULL,QString::fromUtf8("警告"),QString::fromUtf8("是否退出游戏"),QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
+    if(ans == QMessageBox::Yes)
+    {
+        close();
+    }
 }

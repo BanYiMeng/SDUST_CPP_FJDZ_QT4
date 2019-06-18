@@ -1,11 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QGraphicsDropShadowEffect>
-#include <QtWebKit>
-#include <QUrl>
-#include <QWidget>
-#include <QMessageBox>
-#include <QString>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -58,7 +52,7 @@ void MainWindow::Exit_Cg()
 
 void MainWindow::on_About_clicked()
 {
-    if (duo==false)
+    if (duo == false)
     {
     duo=true;
     QMessageBox::about(NULL,QString::fromUtf8("关于"),QString::fromUtf8("制作:奚浩然,王崇霖,颜伯同"));
@@ -76,7 +70,7 @@ void MainWindow::Exit_About()
 
 void MainWindow::on_Starter_clicked()
 {
-    if (duo==false)
+    if (duo == false)
     {
     duo=true;
     MainWindow::close();

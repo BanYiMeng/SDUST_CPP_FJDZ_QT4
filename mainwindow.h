@@ -2,8 +2,13 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QWebView>
 #include <QtCore>
+#include <QGraphicsDropShadowEffect>
+#include <QtWebKit>
+#include <QUrl>
+#include <QWidget>
+#include <QMessageBox>
+#include <QString>
 #include "playwindow.h"
 
 
