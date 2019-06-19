@@ -7,7 +7,7 @@ playwindow::playwindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon(":/resource/logo.jpg"));
-    f=new flyer(1,1,0,0,0,0,0,this);
+    f=new flyer(270,649,60,82,3,0,0,this);
     f->show();
     connect(this,SIGNAL(ended()),this,SLOT(endchoice()));
     ref=new QTimer();
@@ -78,5 +78,5 @@ void playwindow::endchoice()
 
 void playwindow::again()
 {
-
+    f->setmove();
 }

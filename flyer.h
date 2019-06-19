@@ -17,6 +17,7 @@ public:
     void shoot();
     void strike();
     void show();
+    void setmove();
     void move(QString);
 protected:
     int blood;
