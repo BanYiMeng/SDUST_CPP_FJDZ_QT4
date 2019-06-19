@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Gaming...</string>
   </property>
   <property name="autoFillBackground">
    <bool>true</bool>
