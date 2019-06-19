@@ -7,5 +7,6 @@
         <file>resource/bullet_l2.png</file>
         <file>resource/missile.png</file>
         <file>resource/user.png</file>
+        <file>resource/playbackground.jpg</file>
     </qresource>
 </RCC>
