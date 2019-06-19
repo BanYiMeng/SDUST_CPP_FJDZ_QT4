@@ -1,6 +1,6 @@
 #include "flyobjects.h"
 
-flyobjects::flyobjects(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc=0,double pp=0,QWidget *p=0):x(xx),y(yy),w(ww),h(hh),lt(tt),sc(cc),sp(pp),cx(xx+ww/2),cy(yy+hh/2),r(sqrt(ww*ww/4+hh*hh/4))
+flyobjects::flyobjects(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc=0,double pp=0,QWidget *p=0):w(ww),h(hh),lt(tt),sc(cc),cx(xx+ww/2),cy(yy+hh/2),x(xx),y(yy),sp(pp),r(sqrt(ww*ww/4+hh*hh/4))
 {
     frame = new QFrame;
     frame->setParent(p);
@@ -27,4 +27,10 @@ void flyobjects::show(){
     frame->setWindowFlags(Qt::FramelessWindowHint);//去掉最小化，关闭按钮
     frame->move(x,y);
     frame->show();
+}
+
+void flyobjects::setmove(){
+    frame->move(x,y);
+    cx=x+w/2;
+    cy=y+h/2;
 }

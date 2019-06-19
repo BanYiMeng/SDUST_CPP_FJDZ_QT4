@@ -61,9 +61,9 @@ void playwindow::again()
     /*if (flyobjects::strike(f,*))
     {
         if (*->sc<0)
-            lt-=sc;
+            lt+=*->sc;
         else
-            f->fall();
+            f=0;
     }*/
     f->setmove();
 }

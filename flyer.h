@@ -14,7 +14,6 @@ public:
     void paint();
     void fall();
     void shoot();
-    void setmove();
     void move(QString);
     void wudi();
 protected:

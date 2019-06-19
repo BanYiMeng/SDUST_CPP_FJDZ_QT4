@@ -85,14 +85,14 @@ void MainWindow::on_Starter_clicked()
 
 void MainWindow::Exit_Starter()
 {
-    mp=new QWebView;
-    mp->load(QUrl("https://test-1254946716.cos.ap-chongqing.myqcloud.com/main-bgm.mp3"));
     delete end;
     duo=false;
 }
 
 void MainWindow::Reboot()
 {
+    mp=new QWebView;
+    mp->load(QUrl("https://test-1254946716.cos.ap-chongqing.myqcloud.com/main-bgm.mp3"));
     this->show();
     delete p;
 }

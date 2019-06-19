@@ -27,12 +27,6 @@ void flyer::move(QString s){
         x+=3;
 }
 
-void flyer::setmove(){
-    frame->move(x,y);
-    cx=x+w/2;
-    cy=y+h/2;
-}
-
 void flyer::wudi(){
     lt=-1;
 }
