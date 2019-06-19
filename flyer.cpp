@@ -20,6 +20,7 @@ void flyer::show(){
     frame->setMask(pix->mask());  //可以将图片中透明部分显示为透明的
     frame->setAutoFillBackground(true);
     frame->setWindowFlags(Qt::FramelessWindowHint);//去掉最小化，关闭按钮
+    frame->move(270,659);
     frame->show();
 }
 
