@@ -9,11 +9,14 @@ playwindow::playwindow(QWidget *parent) :
     this->setWindowIcon(QIcon(":/resource/logo.jpg"));
     f=new flyer(1,1,0,0,0,0,0);
     connect(this,SIGNAL(ended()),this,SLOT(endchoice()));
+    ref=new QTimer();
+    ref->start(9);
+    connect(ref,SIGNAL(timeout()),this,SLOT(again()));
 }
 
 playwindow::~playwindow()
 {
-    delete ui;
+    delete ui,f,ref;
 }
 
 void playwindow::keyPressEvent(QKeyEvent *ev){
@@ -68,4 +71,9 @@ void playwindow::endchoice()
     {
         close();
     }
+}
+
+void playwindow::again()
+{
+
 }

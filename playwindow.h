@@ -4,6 +4,7 @@
 #include <QKeyEvent>
 #include <QCloseEvent>
 #include <QMessageBox>
+#include <QtCore>
 #include "flyer.h"
 
 namespace Ui {
@@ -23,9 +24,12 @@ public:
 private slots:
     void endchoice();
 
+    void again();
+
 private:
     Ui::playwindow *ui;
     flyer *f;
+    QTimer *ref;
     void closeEvent(QCloseEvent *);
 signals:
     void exited();
