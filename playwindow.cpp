@@ -11,7 +11,7 @@ playwindow::playwindow(QWidget *parent) :
     f->show();
     connect(this,SIGNAL(ended()),this,SLOT(endchoice()));
     ref=new QTimer();
-    ref->start(9);
+    ref->start(19);
     connect(ref,SIGNAL(timeout()),this,SLOT(again()));
 }
 
