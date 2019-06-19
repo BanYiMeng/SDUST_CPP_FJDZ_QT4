@@ -42,7 +42,8 @@ void MainWindow::on_Cg_clicked()
 
 void MainWindow::Exit_Cg()
 {
-    delete wv,end;
+    delete wv;
+    delete end;
     mp=new QWebView;
     mp->load(QUrl("https://test-1254946716.cos.ap-chongqing.myqcloud.com/main-bgm.mp3"));
     duo=false;

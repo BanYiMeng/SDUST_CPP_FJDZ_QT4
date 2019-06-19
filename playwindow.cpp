@@ -16,7 +16,9 @@ playwindow::playwindow(QWidget *parent) :
 
 playwindow::~playwindow()
 {
-    delete ui,f,ref;
+    delete ui;
+    delete f;
+    delete ref;
 }
 
 void playwindow::keyPressEvent(QKeyEvent *ev){
