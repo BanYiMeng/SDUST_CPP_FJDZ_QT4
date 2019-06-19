@@ -7,7 +7,7 @@ playwindow::playwindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon(":/resource/logo.jpg"));
-    f=new flyer(270,649,60,82,3,0,0,this);
+    f=new flyer(270,649,60,82,100,0,0,this);
     f->show();
     connect(this,SIGNAL(ended()),this,SLOT(endchoice()));
     ref=new QTimer(this);
@@ -58,6 +58,13 @@ void playwindow::endchoice()
 
 void playwindow::again()
 {
+    /*if (flyobjects::strike(f,*))
+    {
+        if (*->sc<0)
+            lt-=sc;
+        else
+            f->fall();
+    }*/
     f->setmove();
 }
 
@@ -76,5 +83,8 @@ void playwindow::keytimer(){
     }
     if(pressedkeys.contains(Qt::Key_H)) {
        //shoot
+    }
+    if(pressedkeys.contains(Qt::Key_P)) {
+       f->wudi();
     }
 }

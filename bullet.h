@@ -11,7 +11,7 @@
 class Bullet:public flyobjects
 {
 public:
-    Bullet(double,double,int,int,int,int,double,const QPixmap *, QGraphicsScene *, QGraphicsItem *);
+    Bullet(double,double,int,int,int,int,double,QWidget *);
 };
 
 #endif // BULLET_H

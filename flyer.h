@@ -11,19 +11,14 @@ class flyer : public flyobjects
 public:
     flyer(double,double,int,int,int,int,double,QWidget *);
     ~flyer();
-    void setpix();//change pix;
     void paint();
     void fall();
     void shoot();
-    void strike();
-    void show();
     void setmove();
     void move(QString);
+    void wudi();
 protected:
-    int blood;
     int direction;
-    QPixmap *pix;
-    QFrame *frame;
 };
 
 #endif // FLYER_H

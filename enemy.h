@@ -9,7 +9,7 @@
 class enemy : public flyobjects
 {
 public:
-    enemy(double,double,int,int,int,int,double);
+    enemy(double,double,int,int,int,int,double,QWidget *);
 private:
     double dx,dy,sx,sy;
     int a;
