@@ -42,7 +42,7 @@ void playwindow::keyReleaseEvent(QKeyEvent *ev){
        pressedkeys.remove(static_cast<Qt::Key>(ev->key()));
 }
 
-void playwindow::closeEvent(QCloseEvent *event)
+void playwindow::closeEvent(QCloseEvent *event=0)
 {
     emit exited();
 }
