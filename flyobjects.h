@@ -9,16 +9,18 @@
 #include <QPixmap>
 #include <QPalette>
 #include <QBitmap>
+#include <math.h>
 
 class flyobjects
 {
 public:
-    flyobjects(int,int,int,int,int,int,int);
-    ~flyobjects();
+    flyobjects(double,double,int,int,int,int,double);
+    virtual ~flyobjects();
     virtual void fall()=0;
     virtual void move(QString)=0;
 protected:
-    int x,y,w,h,lt,sc,sp;//lt=lifetime,sc=score,sp=speed
+    int w,h,lt,sc;//lt=lifetime,sc=score,sp=speed
+    double x,y,sp;
 };
 
 #endif // FLYOBJECTS_H

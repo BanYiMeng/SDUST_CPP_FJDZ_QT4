@@ -1,6 +1,6 @@
 #include "flyer.h"
 
-flyer::flyer(int xx=0,int yy=0,int ww=0,int hh=0,int tt=0,int cc=0,int pp=0,QWidget *p=0):flyobjects(xx,yy,ww,hh,tt,cc,pp),blood(100){
+flyer::flyer(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc=0,double pp=0,QWidget *p=0):flyobjects(xx,yy,ww,hh,tt,cc,pp),blood(100){
     direction=0;
     frame = new QFrame;
     pix = new QPixmap(":/resource/user.png");

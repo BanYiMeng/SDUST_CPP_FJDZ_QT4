@@ -9,9 +9,9 @@
 class enemy : public flyobjects
 {
 public:
-    enemy(int,int,int,int,int,int,int);
+    enemy(double,double,int,int,int,int,double);
 private:
-    int dx,dy,sx,sy;
+    double dx,dy,sx,sy;
 };
 
 #endif // ENEMY_H

@@ -9,7 +9,7 @@ typedef enum {UP, DOWN, LEFT, RIGHT} CHECK_FLAG;
 class flyer : public flyobjects
 {
 public:
-    flyer(int,int,int,int,int,int,int,QWidget *);
+    flyer(double,double,int,int,int,int,double,QWidget *);
     ~flyer();
     void setpix();//change pix;
     void paint();

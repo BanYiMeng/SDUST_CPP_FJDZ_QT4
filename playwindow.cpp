@@ -10,8 +10,8 @@ playwindow::playwindow(QWidget *parent) :
     f=new flyer(270,649,60,82,3,0,0,this);
     f->show();
     connect(this,SIGNAL(ended()),this,SLOT(endchoice()));
-    ref=new QTimer();
-    ref->start(9);
+    ref=new QTimer(this);
+    ref->start(11);
     connect(ref,SIGNAL(timeout()),this,SLOT(again()));
     im=new QTimer(this);
     connect(im,SIGNAL(timeout()),this,SLOT(keytimer()));
@@ -30,7 +30,7 @@ playwindow::~playwindow()
 void playwindow::keyPressEvent(QKeyEvent *ev){
     pressedkeys.append(static_cast<Qt::Key>(ev->key()));
     if(!im->isActive()) {
-        im->start(9);
+        im->start(11);
     }
 }
 
