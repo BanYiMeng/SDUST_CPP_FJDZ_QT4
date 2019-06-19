@@ -13,6 +13,9 @@ playwindow::playwindow(QWidget *parent) :
     ref=new QTimer();
     ref->start(19);
     connect(ref,SIGNAL(timeout()),this,SLOT(again()));
+    QPalette pal = this->palette();
+    pal.setBrush(QPalette::Background,QBrush(QPixmap(":/resource/playbackground.jpg")));//playwindow background
+    setPalette(pal);
 }
 
 playwindow::~playwindow()
