@@ -5,6 +5,10 @@
 #include <QObject>
 #include <QWidget>
 #include <QString>
+#include <QFrame>
+#include <QPixmap>
+#include <QPalette>
+#include <QBitmap>
 
 class flyobjects
 {
