@@ -7,3 +7,11 @@ flyobjects::flyobjects(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc
 flyobjects::~flyobjects(){
 
 }
+
+bool flyobjects::strike(flyobjects *one,flyobjects *two){
+    if ((one->r+two->r)*(one->r+two->r)<(one->cx-two->cx)*(one->cx-two->cx)+(one->cy-two->cy)*(one->cy-two->cy)){
+        return false;
+    }
+    else
+        return true;
+}

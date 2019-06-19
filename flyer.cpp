@@ -24,10 +24,6 @@ void flyer::show(){
     frame->show();
 }
 
-void flyer::setpix(){
-    pix->load("resource/logo.jpg");//change our plane's pix;
-}
-
 void flyer::fall(){
     if(blood==0){
         pix->load("JPG");//change bomb pix;
