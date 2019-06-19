@@ -44,4 +44,6 @@ void flyer::move(QString s){
 
 void flyer::setmove(){
     frame->move(x,y);
+    cx=x+w/2;
+    cy=y+h/2;
 }

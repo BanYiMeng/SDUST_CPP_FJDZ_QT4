@@ -18,7 +18,7 @@ public:
     virtual ~flyobjects();
     virtual void fall()=0;
     virtual void move(QString)=0;
-    bool strike(flyobjects*,flyobjects*);
+    static bool strike(flyobjects *,flyobjects *);
 protected:
     int w,h,lt,sc,cx,cy;//lt=lifetime,sc=score,sp=speed
     double x,y,sp,r;

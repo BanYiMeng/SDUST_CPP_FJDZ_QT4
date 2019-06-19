@@ -33,8 +33,7 @@ private slots:
 private:
     Ui::playwindow *ui;
     flyer *f;
-    QTimer *ref;
-    QTimer *im;
+    QTimer *ref,*im;
     void closeEvent(QCloseEvent *);
     QString pressedkeys;
 signals:
