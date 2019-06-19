@@ -19,8 +19,8 @@ public:
     virtual void fall()=0;
     virtual void move(QString)=0;
 protected:
-    int w,h,lt,sc;//lt=lifetime,sc=score,sp=speed
-    double x,y,sp;
+    int w,h,lt,sc,cx,cy;//lt=lifetime,sc=score,sp=speed
+    double x,y,sp,r;
 };
 
 #endif // FLYOBJECTS_H
