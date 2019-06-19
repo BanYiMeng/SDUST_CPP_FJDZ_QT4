@@ -22,4 +22,5 @@ enemy::enemy(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc=0,double 
     sy=800-dy;
     sx/=sqrt(sx*sx+sy*sy)/sp;
     sy/=sqrt(sx*sx+sy*sy)/sp;
+    a=atan(sy/sx);
 }
