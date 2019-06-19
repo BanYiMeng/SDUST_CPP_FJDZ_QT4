@@ -5,6 +5,8 @@
 #include <QCloseEvent>
 #include <QMessageBox>
 #include <QtCore>
+#include <QKeySequence>
+#include <QString>
 #include "flyer.h"
 
 namespace Ui {
@@ -26,11 +28,15 @@ private slots:
 
     void again();
 
+    void keytimer();
+
 private:
     Ui::playwindow *ui;
     flyer *f;
     QTimer *ref;
+    QTimer *im;
     void closeEvent(QCloseEvent *);
+    QString pressedkeys;
 signals:
     void exited();
     void ended();

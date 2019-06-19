@@ -11,8 +11,10 @@ playwindow::playwindow(QWidget *parent) :
     f->show();
     connect(this,SIGNAL(ended()),this,SLOT(endchoice()));
     ref=new QTimer();
-    ref->start(19);
+    ref->start(9);
     connect(ref,SIGNAL(timeout()),this,SLOT(again()));
+    im=new QTimer(this);
+    connect(im,SIGNAL(timeout()),this,SLOT(keytimer()));
     QPalette pal = this->palette();
     pal.setBrush(QPalette::Background,QBrush(QPixmap(":/resource/playbackground.jpg")));//playwindow background
     setPalette(pal);
@@ -26,43 +28,18 @@ playwindow::~playwindow()
 }
 
 void playwindow::keyPressEvent(QKeyEvent *ev){
-    if(ev->key() == Qt::Key_W)
-    {
-        f->move("up");
+    pressedkeys.append(static_cast<Qt::Key>(ev->key()));
+    if(!im->isActive()) {
+        im->start(9);
     }
-    if(ev->key() == Qt::Key_S)
-    {
-        f->move("down");
-    }
-    if(ev->key() == Qt::Key_A)
-    {
-        f->move("left");
-    }
-    if(ev->key() == Qt::Key_D)
-    {
-        f->move("right");
-    }
-    if(ev->key() == Qt::Key_Escape)
-    {
-        emit ended();
-    }
-    QWidget::keyPressEvent(ev);
 }
 
 void playwindow::keyReleaseEvent(QKeyEvent *ev){
-    if(ev->key() == Qt::Key_W)
-    {
-    }
-    if(ev->key() == Qt::Key_S)
-    {
-    }
-    if(ev->key() == Qt::Key_A)
-    {
-    }
-    if(ev->key() == Qt::Key_D)
-    {
-    }
-    QWidget::keyReleaseEvent(ev);
+    if(im->isActive() && pressedkeys.isEmpty()) {
+           im->stop();
+           keytimer();
+       }
+       pressedkeys.remove(static_cast<Qt::Key>(ev->key()));
 }
 
 void playwindow::closeEvent(QCloseEvent *event)
@@ -82,4 +59,22 @@ void playwindow::endchoice()
 void playwindow::again()
 {
     f->setmove();
+}
+
+void playwindow::keytimer(){
+    if(pressedkeys.contains(Qt::Key_W)) {
+        f->move("up");
+    }
+    if(pressedkeys.contains(Qt::Key_S)) {
+        f->move("down");
+    }
+    if(pressedkeys.contains(Qt::Key_A)) {
+        f->move("left");
+    }
+    if(pressedkeys.contains(Qt::Key_D)) {
+        f->move("right");
+    }
+    if(pressedkeys.contains(Qt::Key_H)) {
+       //shoot
+    }
 }

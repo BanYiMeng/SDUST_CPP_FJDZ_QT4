@@ -37,13 +37,13 @@ void flyer::fall(){
 
 void flyer::move(QString s){
     if(s=="up"&&y>0)
-        y-=5;
-    if(s=="down"&&y<800)
-        y+=5;
+        y-=3;
+    if(s=="down"&&y<718)
+        y+=3;
     if(s=="left"&&x>0)
-        x-=5;
-    if(s=="right"&&x<600)
-        x+=5;
+        x-=3;
+    if(s=="right"&&x<540)
+        x+=3;
 }
 
 void flyer::setmove(){
