@@ -9,8 +9,8 @@
         <file>resource/enemy_l2.png</file>
         <file>resource/enemy_l3.png</file>
         <file>resource/logo.jpg</file>
-        <file>resource/longplaybackground.jpg</file>
         <file>resource/missile.png</file>
         <file>resource/user.png</file>
+        <file>resource/playbackground.jpg</file>
     </qresource>
 </RCC>
