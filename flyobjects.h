@@ -9,7 +9,6 @@
 #include <QPixmap>
 #include <QPalette>
 #include <QBitmap>
-#include <QUrl>
 #include <math.h>
 
 class flyobjects

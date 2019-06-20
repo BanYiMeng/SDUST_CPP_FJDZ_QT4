@@ -4,11 +4,14 @@
 #include <QMainWindow>
 #include <QObject>
 #include <QWidget>
+#include <QString>
 
 class chapter
 {
 public:
     chapter();
+    static QString bgr(int);
+private:
 };
 
 #endif // CHAPTER_H

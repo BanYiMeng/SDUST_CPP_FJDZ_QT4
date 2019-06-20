@@ -8,6 +8,7 @@
 #include <QKeySequence>
 #include "flyer.h"
 #include "background.h"
+#include "chapter.h"
 
 namespace Ui {
 class playwindow;
@@ -36,7 +37,7 @@ private:
     flyer *f;
     QTimer *ref,*im;
     void closeEvent(QCloseEvent *);
-    QString pressedkeys;
+    QString *pressedkeys;
 signals:
     void exited();
     void ended();

@@ -7,7 +7,7 @@ playwindow::playwindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon(":/resource/logo.jpg"));
-    bg=new background(0,-800,600,1600,0,0,0,this);
+    bg=new background(0,-800,600,1600,0,0,0,this,chapter::bgr(0));
     f=new flyer(270,649,60,82,100,0,0,this);
     f->show();
     bg->show();
@@ -24,21 +24,23 @@ playwindow::~playwindow()
     delete ui;
     delete f;
     delete ref;
+    delete pressedkeys;
+    delete bg;
 }
 
 void playwindow::keyPressEvent(QKeyEvent *ev){
-    pressedkeys.append(static_cast<Qt::Key>(ev->key()));
+    pressedkeys->append(static_cast<Qt::Key>(ev->key()));
     if(!im->isActive()) {
         im->start(11);
     }
 }
 
 void playwindow::keyReleaseEvent(QKeyEvent *ev){
-    if(im->isActive() && pressedkeys.isEmpty()) {
+    if(im->isActive() && pressedkeys->isEmpty()) {
            im->stop();
            keytimer();
        }
-       pressedkeys.remove(static_cast<Qt::Key>(ev->key()));
+       pressedkeys->remove(static_cast<Qt::Key>(ev->key()));
 }
 
 void playwindow::closeEvent(QCloseEvent *event=0)
@@ -69,22 +71,22 @@ void playwindow::again()
 }
 
 void playwindow::keytimer(){
-    if(pressedkeys.contains(Qt::Key_W)) {
+    if(pressedkeys->contains(Qt::Key_W)) {
         f->move("up");
     }
-    if(pressedkeys.contains(Qt::Key_S)) {
+    if(pressedkeys->contains(Qt::Key_S)) {
         f->move("down");
     }
-    if(pressedkeys.contains(Qt::Key_A)) {
+    if(pressedkeys->contains(Qt::Key_A)) {
         f->move("left");
     }
-    if(pressedkeys.contains(Qt::Key_D)) {
+    if(pressedkeys->contains(Qt::Key_D)) {
         f->move("right");
     }
-    if(pressedkeys.contains(Qt::Key_H)) {
+    if(pressedkeys->contains(Qt::Key_H)) {
        //shoot
     }
-    if(pressedkeys.contains(Qt::Key_P)) {
+    if(pressedkeys->contains(Qt::Key_P)) {
        f->wudi();
     }
 }
