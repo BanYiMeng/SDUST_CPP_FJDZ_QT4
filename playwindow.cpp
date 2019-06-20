@@ -11,6 +11,7 @@ playwindow::playwindow(QWidget *parent) :
     f=new flyer(270,649,60,82,100,0,0,this);
     f->show();
     bg->show();
+    pressedkeys=new QString();
     connect(this,SIGNAL(ended()),this,SLOT(endchoice()));
     ref=new QTimer(this);
     ref->start(11);
