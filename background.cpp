@@ -8,7 +8,7 @@ background::background(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc
 
 void background::move()
 {
-    if (y!=0)
+    if (y!=799)
         y++;
     else
         y=-800;

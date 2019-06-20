@@ -33,7 +33,7 @@ private slots:
 
 private:
     Ui::playwindow *ui;
-    background *bg;
+    background *bga,*bgb;
     flyer *f;
     QTimer *ref,*im;
     void closeEvent(QCloseEvent *);

@@ -7,10 +7,12 @@ playwindow::playwindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon(":/resource/logo.jpg"));
-    bg=new background(0,-800,600,1600,0,0,0,this,chapter::bgr(0));
+    bga=new background(0,0,600,800,0,0,0,this,chapter::bgr(0));
+    bgb=new background(0,-800,600,800,0,0,0,this,chapter::bgr(0));
     f=new flyer(270,649,60,82,100,0,0,this);
     f->show();
-    bg->show();
+    bga->show();
+    bgb->show();
     pressedkeys=new QString();
     connect(this,SIGNAL(ended()),this,SLOT(endchoice()));
     ref=new QTimer(this);
@@ -26,7 +28,8 @@ playwindow::~playwindow()
     delete f;
     delete ref;
     delete pressedkeys;
-    delete bg;
+    delete bga;
+    delete bgb;
 }
 
 void playwindow::keyPressEvent(QKeyEvent *ev){
@@ -67,7 +70,8 @@ void playwindow::again()
         else
             f=0;
     }*/
-    bg->move();
+    bga->move();
+    bgb->move();
     f->setmove();
 }
 
