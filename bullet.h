@@ -17,6 +17,8 @@ public:
     void move();
     void setmove();
     void oshow();
+private:
+    double ox,oy;
 };
 
 #endif // BULLET_H

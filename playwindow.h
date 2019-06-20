@@ -6,7 +6,6 @@
 #include <QMessageBox>
 #include <QtCore>
 #include <QKeySequence>
-#include <QString>
 #include "flyer.h"
 #include "background.h"
 

@@ -33,3 +33,23 @@ void flyobjects::setmove(){
     cx=x+w/2;
     cy=y+h/2;
 }
+
+double flyobjects::getx()
+{
+    return x;
+}
+
+double flyobjects::gety()
+{
+    return y;
+}
+
+int flyobjects::getw()
+{
+    return w;
+}
+
+int flyobjects::geth()
+{
+    return h;
+}

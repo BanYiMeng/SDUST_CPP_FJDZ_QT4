@@ -1,10 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QtCore>
 #include <QGraphicsDropShadowEffect>
 #include <QtWebKit>
-#include <QUrl>
 #include "playwindow.h"
 
 

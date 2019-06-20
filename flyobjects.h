@@ -9,6 +9,7 @@
 #include <QPixmap>
 #include <QPalette>
 #include <QBitmap>
+#include <QUrl>
 #include <math.h>
 
 class flyobjects
@@ -20,6 +21,10 @@ public:
     void setmove();
     static bool strike(flyobjects *,flyobjects *);
     void show();
+    double getx();
+    double gety();
+    int getw();
+    int geth();
 protected:
     int w,h,lt,sc,cx,cy;//lt=lifetime,sc=score,sp=speed
     double x,y,sp,r;
