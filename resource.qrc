@@ -1,13 +1,16 @@
 <RCC>
     <qresource prefix="/">
-        <file>resource/logo.jpg</file>
-        <file>resource/background.jpg</file>
         <file>resource/-1.png</file>
+        <file>resource/background.jpg</file>
         <file>resource/bullet_l1.png</file>
         <file>resource/bullet_l2.png</file>
+        <file>resource/enemy_bullet_l1.png</file>
+        <file>resource/enemy_l1.png</file>
+        <file>resource/enemy_l2.png</file>
+        <file>resource/enemy_l3.png</file>
+        <file>resource/logo.jpg</file>
+        <file>resource/longplaybackground.jpg</file>
         <file>resource/missile.png</file>
         <file>resource/user.png</file>
-        <file>resource/playbackground.jpg</file>
-        <file>resource/longplaybackground.jpg</file>
     </qresource>
 </RCC>
