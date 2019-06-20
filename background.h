@@ -1,14 +1,14 @@
 #ifndef BACKGROUND_H
 #define BACKGROUND_H
 
-#include <QMainWindow>
-#include <QObject>
-#include <QWidget>
+#include <flyobjects.h>
 
-class background
+class background : public flyobjects
 {
 public:
-    background();
+    background(double,double,int,int,int,int,double,QWidget *);
+    void fall();
+    void move();
 };
 
 #endif // BACKGROUND_H

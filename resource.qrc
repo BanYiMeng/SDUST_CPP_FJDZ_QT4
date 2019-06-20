@@ -8,5 +8,6 @@
         <file>resource/missile.png</file>
         <file>resource/user.png</file>
         <file>resource/playbackground.jpg</file>
+        <file>resource/longplaybackground.jpg</file>
     </qresource>
 </RCC>

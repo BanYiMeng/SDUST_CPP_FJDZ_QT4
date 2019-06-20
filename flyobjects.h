@@ -17,7 +17,6 @@ public:
     flyobjects(double,double,int,int,int,int,double,QWidget *);
     virtual ~flyobjects();
     virtual void fall()=0;
-    virtual void move(QString)=0;
     void setmove();
     static bool strike(flyobjects *,flyobjects *);
     void show();

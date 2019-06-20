@@ -7,17 +7,16 @@ playwindow::playwindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon(":/resource/logo.jpg"));
+    bg=new background(0,-800,600,1600,0,0,0,this);
     f=new flyer(270,649,60,82,100,0,0,this);
     f->show();
+    bg->show();
     connect(this,SIGNAL(ended()),this,SLOT(endchoice()));
     ref=new QTimer(this);
     ref->start(11);
     connect(ref,SIGNAL(timeout()),this,SLOT(again()));
     im=new QTimer(this);
     connect(im,SIGNAL(timeout()),this,SLOT(keytimer()));
-    QPalette pal = this->palette();
-    pal.setBrush(QPalette::Background,QBrush(QPixmap(":/resource/playbackground.jpg")));//playwindow background
-    setPalette(pal);
 }
 
 playwindow::~playwindow()
@@ -65,6 +64,7 @@ void playwindow::again()
         else
             f=0;
     }*/
+    bg->move();
     f->setmove();
 }
 

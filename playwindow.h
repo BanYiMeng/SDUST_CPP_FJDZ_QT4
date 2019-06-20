@@ -8,6 +8,7 @@
 #include <QKeySequence>
 #include <QString>
 #include "flyer.h"
+#include "background.h"
 
 namespace Ui {
 class playwindow;
@@ -32,6 +33,7 @@ private slots:
 
 private:
     Ui::playwindow *ui;
+    background *bg;
     flyer *f;
     QTimer *ref,*im;
     void closeEvent(QCloseEvent *);
