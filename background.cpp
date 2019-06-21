@@ -14,8 +14,3 @@ void background::move()
         y=-800;
     setmove();
 }
-
-void background::fall()
-{
-
-}

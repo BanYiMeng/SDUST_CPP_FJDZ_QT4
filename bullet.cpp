@@ -11,8 +11,7 @@ Bullet::Bullet(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc=0,doubl
 
 Bullet::~Bullet()
 {
-    delete pix;
-    delete frame;
+
 }
 
  void Bullet::setp(flyobjects *in)

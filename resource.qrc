@@ -12,7 +12,7 @@
         <file>resource/missile.png</file>
         <file>resource/user.png</file>
         <file>resource/playbackground.jpg</file>
-        <file>resource/boss_l1.jpg</file>
-        <file>resource/player.jpg</file>
+        <file>resource/player.png</file>
+        <file>resource/boss_l1.png</file>
     </qresource>
 </RCC>

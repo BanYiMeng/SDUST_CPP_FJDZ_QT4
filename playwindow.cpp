@@ -6,19 +6,20 @@ playwindow::playwindow(QWidget *parent) :
     ui(new Ui::playwindow)
 {
     ui->setupUi(this);
-    this->setWindowIcon(QIcon(":/resource/logo.jpg"));
+    this->setWindowIcon(QIcon(":/resource/logo"));
     bga=new background(0,0,600,800,0,0,0,this,chapter::bgr(0));
     bgb=new background(0,-800,600,800,0,0,0,this,chapter::bgr(0));
     f=new flyer(270,649,60,82,100,0,0,this);
     f->show();
     bga->show();
     bgb->show();
+    ui->player->raise();
     pressedkeys=new QString();
-    connect(this,SIGNAL(ended()),this,SLOT(endchoice()));
     ref=new QTimer(this);
     ref->start(11);
-    connect(ref,SIGNAL(timeout()),this,SLOT(again()));
     im=new QTimer(this);
+    connect(this,SIGNAL(ended()),this,SLOT(endchoice()));
+    connect(ref,SIGNAL(timeout()),this,SLOT(again()));
     connect(im,SIGNAL(timeout()),this,SLOT(keytimer()));
 }
 

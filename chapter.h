@@ -13,6 +13,7 @@ public:
     chapter();
     static QString bgr(int);
     static QUrl mr(int);
+    static QString bp(int);
 private:
 };
 

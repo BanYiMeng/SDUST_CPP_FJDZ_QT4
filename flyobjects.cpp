@@ -6,7 +6,8 @@ flyobjects::flyobjects(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc
     frame->setParent(p);
 }
 flyobjects::~flyobjects(){
-
+    delete frame;
+    delete pix;
 }
 
 bool flyobjects::strike(flyobjects *one,flyobjects *two){
