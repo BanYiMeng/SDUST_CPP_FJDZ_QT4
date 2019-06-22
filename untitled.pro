@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     enemy.cpp \
     boss.cpp \
     chapter.cpp \
-    bullet.cpp
+    bullet.cpp \
+    planefatory.cpp
 
 HEADERS  += mainwindow.h \
     flyobjects.h \
@@ -38,7 +39,8 @@ HEADERS  += mainwindow.h \
     enemy.h \
     boss.h \
     chapter.h \
-    bullet.h
+    bullet.h \
+    planefatory.h
 
 FORMS    += mainwindow.ui \
     playwindow.ui
