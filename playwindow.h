@@ -9,6 +9,7 @@
 #include "flyer.h"
 #include "background.h"
 #include "chapter.h"
+#include "planefatory.h"
 
 namespace Ui {
 class playwindow;
@@ -38,6 +39,7 @@ private:
     QTimer *ref,*im;
     void closeEvent(QCloseEvent *);
     QString *pressedkeys;
+    planefatory *pf;
 signals:
     void exited();
     void ended();

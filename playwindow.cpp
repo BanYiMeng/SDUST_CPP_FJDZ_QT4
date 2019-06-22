@@ -18,6 +18,7 @@ playwindow::playwindow(QWidget *parent) :
     ref=new QTimer(this);
     ref->start(11);
     im=new QTimer(this);
+    pf=new planefatory(this);
     connect(this,SIGNAL(ended()),this,SLOT(endchoice()));
     connect(ref,SIGNAL(timeout()),this,SLOT(again()));
     connect(im,SIGNAL(timeout()),this,SLOT(keytimer()));
@@ -31,6 +32,7 @@ playwindow::~playwindow()
     delete pressedkeys;
     delete bga;
     delete bgb;
+    delete pf;
 }
 
 void playwindow::keyPressEvent(QKeyEvent *ev){
@@ -71,6 +73,8 @@ void playwindow::again()
         else
             f=0;
     }*/
+    pf->enemyfactory(1000);
+    pf->moves();
     bga->move();
     bgb->move();
     f->setmove();

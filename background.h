@@ -6,7 +6,7 @@
 class background : public flyobjects
 {
 public:
-    background(double,double,int,int,int,int,double,QWidget *,QString);
+    background(double,double,int,int,int,int,double,QWidget *,const QString &);
     void move();
 };
 

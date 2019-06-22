@@ -1,17 +1,16 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 
-#include <QMainWindow>
-#include <QObject>
-#include <QWidget>
+#include <QTime>
 #include <flyobjects.h>
 
 class enemy : public flyobjects
 {
 public:
-    enemy(double,double,int,int,int,int,double,QWidget *);
+    enemy(double,double,int,int,int,int,double,QWidget *,const QString &);
+    void move();
 private:
-    double dx,dy,sx,sy;
+    double sx,sy;
     int a;
 };
 
