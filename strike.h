@@ -11,6 +11,8 @@ class strike
 public:
     strike(QList<enemy*> *,QList<e_bullet*> *,QList<f_bullet*> *,flyer *);
     int e2fb();
+    void f2e();
+    void f2eb();
 private:
     QList<enemy*> *el;
     QList<e_bullet*> *ebl;

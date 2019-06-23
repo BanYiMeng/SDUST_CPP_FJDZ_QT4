@@ -72,6 +72,8 @@ void playwindow::endchoice()
 void playwindow::again()
 {
     f->setsc(s->e2fb());
+    s->f2e();
+    s->f2eb();
     bf->moves();
     pf->moves();
     bga->move();

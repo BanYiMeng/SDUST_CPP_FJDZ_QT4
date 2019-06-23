@@ -38,3 +38,34 @@ int strike::e2fb()
     }
     return t;
 }
+
+void strike::f2e(){
+    for(int i=0;i<el->length();i++){
+        if ((f->getr()+el->at(i)->getr())*(f->getr()+el->at(i)->getr())>(f->getcx()-el->at(i)->getcx())*(f->getcx()-el->at(i)->getcx())+(f->getcy()-el->at(i)->getcy())*(f->getcy()-el->at(i)->getcy())){
+            if (f->llt(-el->at(i)->llt(0))<=0)
+            {
+                f->fall();
+            }
+            delete el->operator [](i);
+            el->removeAt(i);
+            if (i>0)
+                i--;
+        }
+    }
+}
+
+
+void strike::f2eb(){
+    for(int i=0;i<ebl->length();i++){
+        if ((f->getr()+ebl->at(i)->getr())*(f->getr()+ebl->at(i)->getr())>(f->getcx()-ebl->at(i)->getcx())*(f->getcx()-ebl->at(i)->getcx())+(f->getcy()-ebl->at(i)->getcy())*(f->getcy()-ebl->at(i)->getcy())){
+            if (f->llt(ebl->at(i)->llt(0))<=0)
+            {
+                f->fall();
+            }
+            delete ebl->operator [](i);
+            ebl->removeAt(i);
+            if (i>0)
+                i--;
+        }
+    }
+}
