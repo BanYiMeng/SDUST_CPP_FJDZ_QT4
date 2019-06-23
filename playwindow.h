@@ -40,11 +40,14 @@ private:
     Ui::playwindow *ui;
     background *bga,*bgb;
     flyer *f;
-    QTimer *ref,*im;
+    QTimer *ref,*im,*mid;
     void closeEvent(QCloseEvent *);
     QString *pressedkeys;
     planefatory *pf;
     bulletfactory *bf;
+    QList<enemy*> *el;
+    QList<e_bullet*> *ebl;
+    QList<f_bullet*> *fbl;
 signals:
     void exited();
     void ended();

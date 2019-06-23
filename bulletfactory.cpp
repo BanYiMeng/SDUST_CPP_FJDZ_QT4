@@ -5,9 +5,18 @@ bulletfactory::bulletfactory(QWidget *pp=0):p(pp)
 
 }
 
-QList<e_bullet*>* bulletfactory::e_creator(QList<flyobjects *> e, flyobjects *m, int x=0)
+QList<e_bullet*>* bulletfactory::e_creator(QList<enemy*> *e, flyobjects *m, int x=0)
 {
-
+    for (int i=0;i<e->length();i++)
+    {
+        eblist.append(new e_bullet(e->at(i)->getx()+(double)e->at(i)->getw()/2-16,e->at(i)->gety()+(double)e->at(i)->geth()/2-16,32,32,-3,0,5,p,QString(":/resource/enemy_bullet_l1")));
+        eblist[eblist.length()-1]->aim(e->at(i),m);
+        eblist[eblist.length()-1]->show();
+        QEventLoop loop;
+        QTimer::singleShot(100, &loop, SLOT(quit()));
+        loop.exec();
+    }
+    return &eblist;
 }
 
 QList<f_bullet*>* bulletfactory::f_creator(flyobjects *m, int x=0)
@@ -50,4 +59,6 @@ void bulletfactory::moves()
 {
     for (int i=0;i<fblist.length();i++)
         fblist.at(i)->move();
+    for (int i=0;i<eblist.length();i++)
+        eblist.at(i)->move();
 }

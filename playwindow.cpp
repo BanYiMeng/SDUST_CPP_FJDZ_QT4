@@ -19,13 +19,15 @@ playwindow::playwindow(QWidget *parent) :
     ref->start(11);
     im=new QTimer(this);
     im->start(111);
+    mid=new QTimer(this);
+    mid->start(1111);
     pf=new planefatory(this);
     bf=new bulletfactory(this);
     connect(this,SIGNAL(ended()),this,SLOT(endchoice()));
     connect(ref,SIGNAL(timeout()),this,SLOT(again()));
     connect(ref,SIGNAL(timeout()),this,SLOT(keytimer()));
     connect(im,SIGNAL(timeout()),this,SLOT(keytimer2()));
-    connect(im,SIGNAL(timeout()),this,SLOT(mids()));
+    connect(mid,SIGNAL(timeout()),this,SLOT(mids()));
 }
 
 playwindow::~playwindow()
@@ -38,6 +40,8 @@ playwindow::~playwindow()
     delete bgb;
     delete pf;
     delete bf;
+    delete im;
+    delete mid;
 }
 
 void playwindow::keyPressEvent(QKeyEvent *ev){
@@ -103,11 +107,12 @@ void playwindow::keytimer(){
 void playwindow::keytimer2()
 {
     if(pressedkeys->contains(Qt::Key_H)) {
-       bf->f_creator(f,1);
+       fbl=bf->f_creator(f,1);
     }
 }
 
 void playwindow::mids()
 {
-    pf->enemyfactory(1000);
+    el=pf->enemyfactory(1000);
+    ebl=bf->e_creator(el,f,0);
 }

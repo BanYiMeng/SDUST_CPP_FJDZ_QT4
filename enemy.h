@@ -11,7 +11,7 @@ public:
     void move();
 private:
     double sx,sy;
-    int a;
+    double a;
 };
 
 #endif // ENEMY_H

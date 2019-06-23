@@ -30,6 +30,7 @@ private slots:
     void on_Starter_clicked();
 
     void Exit_Starter();
+
     void Reboot();
 
 private:
