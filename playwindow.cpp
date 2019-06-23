@@ -23,6 +23,7 @@ playwindow::playwindow(QWidget *parent) :
     mid->start(1111);
     pf=new planefatory(this);
     bf=new bulletfactory(this);
+    s=new strike(pf->getel(),bf->getebl(),bf->getfbl(),f);
     connect(this,SIGNAL(ended()),this,SLOT(endchoice()));
     connect(ref,SIGNAL(timeout()),this,SLOT(again()));
     connect(ref,SIGNAL(timeout()),this,SLOT(keytimer()));
@@ -70,13 +71,7 @@ void playwindow::endchoice()
 
 void playwindow::again()
 {
-    /*if (flyobjects::strike(f,*))
-    {
-        if (*->sc<0)
-            lt+=*->sc;
-        else
-            f=0;
-    }*/
+    f->setsc(s->e2fb());
     bf->moves();
     pf->moves();
     bga->move();
@@ -107,12 +102,12 @@ void playwindow::keytimer(){
 void playwindow::keytimer2()
 {
     if(pressedkeys->contains(Qt::Key_H)) {
-       fbl=bf->f_creator(f,1);
+       bf->f_creator(f,1);
     }
 }
 
 void playwindow::mids()
 {
-    el=pf->enemyfactory(1000);
-    ebl=bf->e_creator(el,f,0);
+    el=pf->enemyfactory(f->getsc());
+    bf->e_creator(el,f,0);
 }

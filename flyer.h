@@ -16,6 +16,7 @@ public:
     void shoot();
     void move(QString);
     void wudi();
+    void setsc(int);
 protected:
     int direction;
 };

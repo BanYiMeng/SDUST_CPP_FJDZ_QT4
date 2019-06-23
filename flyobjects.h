@@ -17,17 +17,17 @@ public:
     flyobjects(double,double,int,int,int,int,double,QWidget *);
     virtual ~flyobjects();
     void setmove();
-    static bool strike(flyobjects *,flyobjects *);
     void show();
-    double getx();
-    double gety();
-    int getw();
-    int geth();
+    double getcx();
+    double getcy();
     void setsp(int);
     double getsp();
+    int getr();
+    int llt(int);
+    int getsc();
 protected:
-    int w,h,lt,sc,cx,cy;//lt=lifetime,sc=score,sp=speed
-    double x,y,sp,r;
+    int w,h,lt,sc,r;//lt=lifetime,sc=score,sp=speed
+    double x,y,sp,cx,cy;
     QPixmap *pix;
     QFrame *frame;
 };

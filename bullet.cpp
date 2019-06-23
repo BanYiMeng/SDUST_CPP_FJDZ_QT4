@@ -13,8 +13,8 @@ Bullet::~Bullet()
 
  void Bullet::setp(flyobjects *in)
 {
-    x+=in->getx()+in->getw()/2-(double)w/2;
-    y+=in->gety()-1-h;
+    x+=in->getcx()-(double)w/2;
+    y+=in->getcy();
 }
 
 void Bullet::setmove()

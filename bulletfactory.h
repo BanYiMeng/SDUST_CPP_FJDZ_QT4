@@ -12,9 +12,11 @@ class bulletfactory : public QThread
 {
 public:
     bulletfactory(QWidget *);
-    QList<f_bullet*>* f_creator(flyobjects *,int);
-    QList<e_bullet*>* e_creator(QList<enemy*>*,flyobjects*,int);
+    void f_creator(flyobjects *,int);
+    void e_creator(QList<enemy*>*,flyobjects*,int);
     void moves();
+    QList<f_bullet*>* getfbl();
+    QList<e_bullet*>* getebl();
 private:
     QWidget *p;
     QList<e_bullet*> eblist;

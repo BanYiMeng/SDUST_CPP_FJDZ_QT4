@@ -33,8 +33,7 @@ void planefatory::moves()
         elist.at(i)->move();
 }
 
-void planefatory::delx(int x=0)
+QList<enemy*>* planefatory::getel()
 {
-    delete elist[x];
-    elist.removeAt(x);
+    return &elist;
 }

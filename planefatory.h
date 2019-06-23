@@ -10,7 +10,7 @@ public:
     QList<enemy*>* enemyfactory(int);
     planefatory(QWidget *);
     void moves();
-    void delx(int);
+    QList<enemy*>* getel();
 private:
     QList<enemy*> elist;
     QWidget *p;

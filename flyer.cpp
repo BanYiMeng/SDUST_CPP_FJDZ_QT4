@@ -30,3 +30,8 @@ void flyer::move(QString s){
 void flyer::wudi(){
     lt=-1;
 }
+
+void flyer::setsc(int i=0)
+{
+    sc+=i;
+}

@@ -7,8 +7,8 @@ e_bullet::e_bullet(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc=0,d
 
 void e_bullet::aim(flyobjects *e,flyobjects *m)
 {
-    sx=m->getx()-e->getx()-(double)e->getw()/2+(double)m->getw()/2;
-    sy=m->gety()-e->gety()-(double)e->geth()/2+(double)m->geth()/2;
+    sx=m->getcx()-e->getcx();
+    sy=m->getcy()-e->getcy();
     sx/=sqrt(sx*sx+sy*sy)/sp;
     sy/=sqrt(sx*sx+sy*sy)/sp;
 }

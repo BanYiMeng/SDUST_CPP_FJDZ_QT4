@@ -11,6 +11,7 @@
 #include "chapter.h"
 #include "planefatory.h"
 #include "bulletfactory.h"
+#include "strike.h"
 
 namespace Ui {
 class playwindow;
@@ -46,8 +47,7 @@ private:
     planefatory *pf;
     bulletfactory *bf;
     QList<enemy*> *el;
-    QList<e_bullet*> *ebl;
-    QList<f_bullet*> *fbl;
+    strike *s;
 signals:
     void exited();
     void ended();

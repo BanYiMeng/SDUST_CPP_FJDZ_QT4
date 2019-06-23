@@ -1,6 +1,6 @@
 #include "flyobjects.h"
 
-flyobjects::flyobjects(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc=0,double pp=0,QWidget *p=0):w(ww),h(hh),lt(tt),sc(cc),cx(xx+ww/2),cy(yy+hh/2),x(xx),y(yy),sp(pp),r(sqrt(ww*ww/4+hh*hh/4))
+flyobjects::flyobjects(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc=0,double pp=0,QWidget *p=0):w(ww),h(hh),lt(tt),sc(cc),r(sqrt(1.0*ww*ww/4+1.0*hh*hh/4)),x(xx),y(yy),sp(pp),cx(xx+(double)ww/2),cy(yy+(double)hh/2)
 {
     frame = new QFrame;
     frame->setParent(p);
@@ -8,14 +8,6 @@ flyobjects::flyobjects(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc
 flyobjects::~flyobjects(){
     delete frame;
     delete pix;
-}
-
-bool flyobjects::strike(flyobjects *one,flyobjects *two){
-    if ((one->r+two->r)*(one->r+two->r)<(one->cx-two->cx)*(one->cx-two->cx)+(one->cy-two->cy)*(one->cy-two->cy)){
-        return false;
-    }
-    else
-        return true;
 }
 
 void flyobjects::show(){
@@ -35,24 +27,14 @@ void flyobjects::setmove(){
     cy=y+h/2;
 }
 
-double flyobjects::getx()
+double flyobjects::getcx()
 {
-    return x;
+    return cx;
 }
 
-double flyobjects::gety()
+double flyobjects::getcy()
 {
-    return y;
-}
-
-int flyobjects::getw()
-{
-    return w;
-}
-
-int flyobjects::geth()
-{
-    return h;
+    return cy;
 }
 
 void flyobjects::setsp(int x=0)
@@ -65,3 +47,18 @@ double flyobjects::getsp()
     return sp;
 }
 
+int flyobjects::llt(int x)
+{
+    lt+=x;
+    return lt;
+}
+
+int flyobjects::getr()
+{
+    return r;
+}
+
+int flyobjects::getsc()
+{
+    return sc;
+}
