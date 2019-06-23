@@ -10,6 +10,7 @@
 #include "background.h"
 #include "chapter.h"
 #include "planefatory.h"
+#include "bulletfactory.h"
 
 namespace Ui {
 class playwindow;
@@ -32,6 +33,9 @@ private slots:
 
     void keytimer();
 
+    void keytimer2();
+
+    void mids();
 private:
     Ui::playwindow *ui;
     background *bga,*bgb;
@@ -40,6 +44,7 @@ private:
     void closeEvent(QCloseEvent *);
     QString *pressedkeys;
     planefatory *pf;
+    bulletfactory *bf;
 signals:
     void exited();
     void ended();

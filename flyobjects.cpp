@@ -54,3 +54,14 @@ int flyobjects::geth()
 {
     return h;
 }
+
+void flyobjects::setsp(int x=0)
+{
+    sp=x;
+}
+
+double flyobjects::getsp()
+{
+    return sp;
+}
+

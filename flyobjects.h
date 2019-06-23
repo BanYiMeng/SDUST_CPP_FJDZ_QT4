@@ -23,6 +23,8 @@ public:
     double gety();
     int getw();
     int geth();
+    void setsp(int);
+    double getsp();
 protected:
     int w,h,lt,sc,cx,cy;//lt=lifetime,sc=score,sp=speed
     double x,y,sp,r;

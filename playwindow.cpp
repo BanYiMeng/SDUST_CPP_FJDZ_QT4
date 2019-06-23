@@ -18,10 +18,14 @@ playwindow::playwindow(QWidget *parent) :
     ref=new QTimer(this);
     ref->start(11);
     im=new QTimer(this);
+    im->start(111);
     pf=new planefatory(this);
+    bf=new bulletfactory(this);
     connect(this,SIGNAL(ended()),this,SLOT(endchoice()));
     connect(ref,SIGNAL(timeout()),this,SLOT(again()));
-    connect(im,SIGNAL(timeout()),this,SLOT(keytimer()));
+    connect(ref,SIGNAL(timeout()),this,SLOT(keytimer()));
+    connect(im,SIGNAL(timeout()),this,SLOT(keytimer2()));
+    connect(im,SIGNAL(timeout()),this,SLOT(mids()));
 }
 
 playwindow::~playwindow()
@@ -33,21 +37,17 @@ playwindow::~playwindow()
     delete bga;
     delete bgb;
     delete pf;
+    delete bf;
 }
 
 void playwindow::keyPressEvent(QKeyEvent *ev){
     pressedkeys->append(static_cast<Qt::Key>(ev->key()));
-    if(!im->isActive()) {
-        im->start(11);
-    }
 }
 
 void playwindow::keyReleaseEvent(QKeyEvent *ev){
-    if(im->isActive() && pressedkeys->isEmpty()) {
-           im->stop();
-           keytimer();
-       }
-       pressedkeys->remove(static_cast<Qt::Key>(ev->key()));
+    if (ev->key() == Qt::Key_W)
+        f->setsp(0);
+    pressedkeys->remove(static_cast<Qt::Key>(ev->key()));
 }
 
 void playwindow::closeEvent(QCloseEvent *event=0)
@@ -73,7 +73,7 @@ void playwindow::again()
         else
             f=0;
     }*/
-    pf->enemyfactory(1000);
+    bf->moves();
     pf->moves();
     bga->move();
     bgb->move();
@@ -83,6 +83,7 @@ void playwindow::again()
 void playwindow::keytimer(){
     if(pressedkeys->contains(Qt::Key_W)) {
         f->move("up");
+        f->setsp(3);
     }
     if(pressedkeys->contains(Qt::Key_S)) {
         f->move("down");
@@ -93,10 +94,20 @@ void playwindow::keytimer(){
     if(pressedkeys->contains(Qt::Key_D)) {
         f->move("right");
     }
-    if(pressedkeys->contains(Qt::Key_H)) {
-       //shoot
-    }
     if(pressedkeys->contains(Qt::Key_P)) {
        f->wudi();
     }
+
+}
+
+void playwindow::keytimer2()
+{
+    if(pressedkeys->contains(Qt::Key_H)) {
+       bf->f_creator(f,1);
+    }
+}
+
+void playwindow::mids()
+{
+    pf->enemyfactory(1000);
 }

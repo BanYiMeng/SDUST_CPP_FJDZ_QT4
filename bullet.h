@@ -11,14 +11,12 @@
 class Bullet:public flyobjects
 {
 public:
-    Bullet(double,double,int,int,int,int,double,QWidget *);
+    Bullet(double,double,int,int,int,int,double,QWidget *,QString);
     ~Bullet();
     void setp(flyobjects *);
-    void move();
     void setmove();
-    void oshow();
-private:
-    double ox,oy;
+protected:
+    double sx,sy;
 };
 
 #endif // BULLET_H
