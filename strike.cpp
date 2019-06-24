@@ -21,16 +21,17 @@ int strike::e2fb()
                     delete fbl->operator [](k);
                     el->removeAt(i);
                     fbl->removeAt(k);
+                    k=-1;
+                    if (i>0)
+                        i--;
                 }
                 else
                 {
                    delete fbl->operator [](k);
                    fbl->removeAt(k);
+                   if (k>=0)
+                       k--;
                 }
-                if (k>0)
-                    k--;
-                if (i>0)
-                    i--;
                 if (!el->length()||!fbl->length())
                     return t;
             }
