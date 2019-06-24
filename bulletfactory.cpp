@@ -49,7 +49,7 @@ void bulletfactory::f_creator(flyobjects *m, int x=0)
         fblist.append(new f_bullet(0,-85,20,45,-4,0,4+m->getsp(),p,QString(":/resource/bullet_l1")));
         fblist[fblist.length()-1]->setp(m);
         fblist[fblist.length()-1]->show();
-        QThread::usleep(999);
+        QThread::usleep(99);
     }
 }
 
