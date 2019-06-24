@@ -55,8 +55,7 @@ private:
     strike *s;
     supply *su;
 signals:
-    void exited();
-    void ended();
+    void exited(int);
 };
 
 #endif // PLAYWINDOW_H

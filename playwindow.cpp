@@ -32,7 +32,6 @@ playwindow::playwindow(QWidget *parent) :
     s=new strike(pf->getel(),bf->getebl(),bf->getfbl(),f);
     su=new supply(-50,-50,60,60,0,0,2,this,f);
     connect(slow,SIGNAL(timeout()),this,SLOT(slows()));
-    connect(this,SIGNAL(ended()),this,SLOT(endchoice()));
     connect(ref,SIGNAL(timeout()),this,SLOT(again()));
     connect(ref,SIGNAL(timeout()),this,SLOT(keytimer()));
     connect(im,SIGNAL(timeout()),this,SLOT(keytimer2()));
@@ -67,7 +66,7 @@ void playwindow::keyReleaseEvent(QKeyEvent *ev){
 
 void playwindow::closeEvent(QCloseEvent *event=0)
 {
-    emit exited();
+    emit exited(f->getsc());
 }
 
 void playwindow::endchoice()

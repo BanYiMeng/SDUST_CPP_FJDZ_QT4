@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <stdio.h>
+#include <QFile>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -12,6 +14,21 @@ MainWindow::MainWindow(QWidget *parent) :
     shadowEffect->setBlurRadius(10);
     ui->Starter->setGraphicsEffect(shadowEffect);
     ui->Cg->setGraphicsEffect(shadowEffect);
+    ui->About->setGraphicsEffect(shadowEffect);
+    ui->hint->setGraphicsEffect(shadowEffect);
+    ui->scores->setGraphicsEffect(shadowEffect);
+    ui->scorelabel->setGraphicsEffect(shadowEffect);
+    ui->scores2->setGraphicsEffect(shadowEffect);
+    ui->scorelabel2->setGraphicsEffect(shadowEffect);
+    sf=new QFile("./best_score");
+    sf->open(QIODevice::ReadOnly | QIODevice::Text);
+    txtInput=new QTextStream(sf);
+    hest=txtInput->readLine().toInt();
+    ui->scores->display(hest);
+    csf=new QFile("./c_score");
+    csf->open(QIODevice::ReadOnly | QIODevice::Text);
+    ctxtInput=new QTextStream(csf);
+    ui->scores2->display(ctxtInput->readLine().toInt());
     mp=new QWebView;
     mp->load(QUrl::fromLocalFile("/home/tester/resource/main-bgm.html"));
     connect(ui->Cg,SIGNAL(clicked()),this,SLOT(on_Cg_clicked()));
@@ -22,31 +39,46 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete sf;
+    delete txtInput;
+    delete csf;
+    delete ctxtInput;
 }
 
 void MainWindow::on_Cg_clicked()
 {
     if (duo==false)
     {
-    delete mp;
-    duo=true;
-    wv=new QWebView;
-    wv->setAttribute(Qt::WA_DeleteOnClose);
-    wv->load(QUrl::fromLocalFile("/home/tester/resource/cg.html"));
-    wv->showFullScreen();
-    end=new QTimer(this);
-    end->start(210001);
-    connect(end,SIGNAL(timeout()),this,SLOT(Exit_Cg()));
+        if (mp!=NULL)
+        {
+            delete mp;
+            mp=NULL;
+        }
+        duo=true;
+        wv=new QWebView;
+        wv->setAttribute(Qt::WA_DeleteOnClose);
+        wv->load(QUrl::fromLocalFile("/home/tester/resource/cg.html"));
+        wv->showFullScreen();
+        if (end==NULL)
+            end=new QTimer(this);
+        end->start(210001);
+        connect(end,SIGNAL(timeout()),this,SLOT(Exit_Cg()));
     }
+    else
+        duo=false;
 }
 
 void MainWindow::Exit_Cg()
 {
-    delete wv;
+    if (wv!=NULL)
+    {
+        delete wv;
+        wv=NULL;
+    }
     delete end;
+    end=NULL;
     mp=new QWebView;
     mp->load(QUrl::fromLocalFile("/home/tester/resource/main-bgm.html"));
-    duo=false;
 }
 
 void MainWindow::on_About_clicked()
@@ -55,16 +87,9 @@ void MainWindow::on_About_clicked()
     {
     duo=true;
     QMessageBox::about(NULL,QString::fromUtf8("关于"),QString::fromUtf8("制作:奚浩然,王崇霖,颜伯同"));
-    end=new QTimer(this);
-    end->start(1001);
-    connect(end,SIGNAL(timeout()),this,SLOT(Exit_About()));
     }
-}
-
-void MainWindow::Exit_About()
-{
-    delete end;
-    duo=false;
+    else
+        duo=false;
 }
 
 void MainWindow::on_Starter_clicked()
@@ -73,24 +98,34 @@ void MainWindow::on_Starter_clicked()
     {
     duo=true;
     MainWindow::close();
-    delete mp;
-    p=new playwindow();
-    p->show();
-    end=new QTimer(this);
-    end->start(1001);
-    connect(end,SIGNAL(timeout()),this,SLOT(Exit_Starter()));
+    if (mp!=NULL)
+    {
+        delete mp;
+        mp=NULL;
     }
-    connect(p,SIGNAL(exited()),this,SLOT(Reboot()));
+    p=new playwindow();
+    p->setAttribute(Qt::WA_DeleteOnClose);
+    p->show();
+    connect(p,SIGNAL(exited(int)),this,SLOT(Reboot(int)));
+    }
+    else
+        duo=false;
 }
 
-void MainWindow::Exit_Starter()
+void MainWindow::Reboot(int i=0)
 {
-    delete end;
-    duo=false;
-}
-
-void MainWindow::Reboot()
-{
+    if (i>hest)
+    {
+        freopen("./best_score","w",stdout);
+        printf("%d",i);
+        ui->scores->display(i);
+        fclose(stdout);
+        hest=i;
+    }
+    ui->scores2->display(i);
+    freopen("./c_score","w",stdout);
+    printf("%d",i);
+    fclose(stdout);
     mp=new QWebView;
     mp->load(QUrl::fromLocalFile("/home/tester/resource/main-bgm.html"));
     this->show();

@@ -25,21 +25,22 @@ private slots:
 
     void on_About_clicked();
 
-    void Exit_About();
-
     void on_Starter_clicked();
 
-    void Exit_Starter();
-
-    void Reboot();
+    void Reboot(int);
 
 private:
     Ui::MainWindow *ui;
-    bool duo=false;
-    QWebView *wv;
-    QWebView *mp;
-    QTimer *end;
+    bool duo=true;
+    QWebView *wv=NULL;
+    QWebView *mp=NULL;
+    QTimer *end=NULL;
     playwindow *p;
+    QFile *sf;
+    QFile *csf;
+    QTextStream *txtInput;
+    QTextStream *ctxtInput;
+    int hest=-1;
 };
 
 #endif // MAINWINDOW_H
