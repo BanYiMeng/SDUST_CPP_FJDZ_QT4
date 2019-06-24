@@ -70,7 +70,7 @@ void playwindow::endchoice()
     ref->stop();
     mid->stop();
     QString qs="yours score is:";
-    qs.append(f->getsc());
+    qs.append(QString::number(f->getsc(),10));
     QMessageBox::about(NULL,"Laji!",qs);
     if(QMessageBox::Ok){
         close();
