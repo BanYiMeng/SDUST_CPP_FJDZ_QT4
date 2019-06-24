@@ -13,10 +13,12 @@ public:
     int e2fb();
     void f2e();
     void f2eb();
+    bool getflag();
 private:
     QList<enemy*> *el;
     QList<e_bullet*> *ebl;
     QList<f_bullet*> *fbl;
+    bool flag;
     flyer *f;
 };
 

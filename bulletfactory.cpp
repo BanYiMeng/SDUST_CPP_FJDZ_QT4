@@ -55,10 +55,24 @@ void bulletfactory::f_creator(flyobjects *m, int x=0)
 
 void bulletfactory::moves()
 {
-    for (int i=0;i<fblist.length();i++)
+    for (int i=0;i<fblist.length();i++){
         fblist.at(i)->move();
-    for (int i=0;i<eblist.length();i++)
+        if(fblist.at(i)->getcy()<-50){
+            delete fblist.operator [](i);
+            fblist.removeAt(i);
+            if (i>0)
+                i--;
+        }
+    }
+    for (int i=0;i<eblist.length();i++){
         eblist.at(i)->move();
+    if(eblist.at(i)->getcy()<-50||eblist.at(i)->getcy()>850){
+        delete eblist.operator [](i);
+        eblist.removeAt(i);
+        if (i>0)
+            i--;
+    }
+    }
 }
 
 QList<e_bullet*>* bulletfactory::getebl()

@@ -29,8 +29,21 @@ QList<enemy*>* planefatory::enemyfactory(int sc=0){
 
 void planefatory::moves()
 {
-    for (int i=0;i<elist.length();i++)
+    for (int i=0;i<elist.length();i++){
         elist.at(i)->move();
+        if(elist.at(i)->getcy()>800+elist.at(i)->getr()+1){
+            if (elist.at(i)->getsp()==1)
+                l1--;
+            else if(elist.at(i)->getsp()==0.6)
+                l2--;
+            else if(elist.at(i)->getsp()==0.4)
+                l3--;
+            delete elist.operator [](i);
+            elist.removeAt(i);
+            if (i>0)
+                i--;
+        }
+    }
 }
 
 QList<enemy*>* planefatory::getel()

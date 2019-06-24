@@ -87,7 +87,7 @@ void playwindow::again()
     bga->move();
     bgb->move();
     f->setmove();
-    if(f->llt(0)<=0)
+    if(s->getflag())
         endchoice();
 }
 

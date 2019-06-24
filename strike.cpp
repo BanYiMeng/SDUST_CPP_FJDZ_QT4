@@ -1,6 +1,6 @@
 #include "strike.h"
 
-strike::strike(QList<enemy*> *e,QList<e_bullet*> *eb,QList<f_bullet*> *fb,flyer *ff):el(e),ebl(eb),fbl(fb),f(ff)
+strike::strike(QList<enemy*> *e,QList<e_bullet*> *eb,QList<f_bullet*> *fb,flyer *ff):el(e),ebl(eb),fbl(fb),f(ff),flag(false)
 {
 
 }
@@ -47,6 +47,7 @@ void strike::f2e(){
             {
                 if (f->llt(-el->at(i)->llt(0))<=0)
                     f->fall();
+                flag=true;
             }
             delete el->operator [](i);
             el->removeAt(i);
@@ -64,6 +65,7 @@ void strike::f2eb(){
             {
                 if (f->llt(ebl->at(i)->llt(0))<=0)
                     f->fall();
+                flag=true;
             }
             delete ebl->operator [](i);
             ebl->removeAt(i);
@@ -71,4 +73,8 @@ void strike::f2eb(){
                 i--;
         }
     }
+}
+
+bool strike::getflag(){
+    return flag;
 }
