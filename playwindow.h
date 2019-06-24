@@ -39,7 +39,6 @@ private slots:
 
     void mids();
 
-    void gameover();
 private:
     Ui::playwindow *ui;
     background *bga,*bgb;
