@@ -1,6 +1,6 @@
 #include "flyer.h"
 
-flyer::flyer(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc=0,double pp=0,QWidget *p=0):flyobjects(xx,yy,ww,hh,tt,cc,pp,p){
+flyer::flyer(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc=0,double pp=0,QWidget *p=0):flyobjects(xx,yy,ww,hh,tt,cc,pp,p),t(0){
     pix = new QPixmap(":/resource/user");
     frame->setWindowFlags(Qt::WindowStaysOnTopHint);
 }
@@ -32,4 +32,10 @@ void flyer::wudi(){
 void flyer::setsc(int i=0)
 {
     sc+=i;
+}
+
+int flyer::optt(int i=0)
+{
+    t+=i;
+    return t;
 }

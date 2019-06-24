@@ -17,8 +17,9 @@ public:
     void move(QString);
     void wudi();
     void setsc(int);
-protected:
-    int direction;
+    int optt(int);
+private:
+    int t;
 };
 
 #endif // FLYER_H

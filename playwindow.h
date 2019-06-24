@@ -13,6 +13,7 @@
 #include "planefatory.h"
 #include "bulletfactory.h"
 #include "strike.h"
+#include "supply.h"
 
 namespace Ui {
 class playwindow;
@@ -39,17 +40,20 @@ private slots:
 
     void mids();
 
+    void slows();
+
 private:
     Ui::playwindow *ui;
     background *bga,*bgb;
     flyer *f;
-    QTimer *ref,*im,*mid;
+    QTimer *ref,*im,*mid,*slow;
     void closeEvent(QCloseEvent *);
     QString *pressedkeys;
     planefatory *pf;
     bulletfactory *bf;
     QList<enemy*> *el;
     strike *s;
+    supply *su;
 signals:
     void exited();
     void ended();

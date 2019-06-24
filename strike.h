@@ -18,8 +18,8 @@ private:
     QList<enemy*> *el;
     QList<e_bullet*> *ebl;
     QList<f_bullet*> *fbl;
-    bool flag;
     flyer *f;
+    bool flag;
 };
 
 #endif // STRIKE_H

@@ -21,6 +21,8 @@ playwindow::playwindow(QWidget *parent) :
     im->start(111);
     mid=new QTimer(this);
     mid->start(1111);
+    slow=new QTimer(this);
+    slow->start(60001);
     pf=new planefatory(this);
     bf=new bulletfactory(this);
     ui->scorelabel->raise();
@@ -28,6 +30,8 @@ playwindow::playwindow(QWidget *parent) :
     ui->hplabel->raise();
     ui->hps->raise();
     s=new strike(pf->getel(),bf->getebl(),bf->getfbl(),f);
+    su=new supply(-50,-50,30,30,0,0,2,this,f);
+    connect(slow,SIGNAL(timeout()),this,SLOT(slows()));
     connect(this,SIGNAL(ended()),this,SLOT(endchoice()));
     connect(ref,SIGNAL(timeout()),this,SLOT(again()));
     connect(ref,SIGNAL(timeout()),this,SLOT(keytimer()));
@@ -47,6 +51,8 @@ playwindow::~playwindow()
     delete bf;
     delete im;
     delete mid;
+    delete su;
+    delete slow;
 }
 
 void playwindow::keyPressEvent(QKeyEvent *ev){
@@ -80,6 +86,8 @@ void playwindow::endchoice()
 void playwindow::again()
 {
     f->setsc(s->e2fb());
+    su->update();
+    su->move();
     s->f2e();
     s->f2eb();
     bf->moves();
@@ -114,7 +122,7 @@ void playwindow::keytimer(){
 void playwindow::keytimer2()
 {
     if(pressedkeys->contains(Qt::Key_H)) {
-       bf->f_creator(f,1);
+       bf->f_creator(f,f->optt(0));
     }
     ui->score->display(f->getsc());
     ui->hps->display(f->llt(0));
@@ -124,4 +132,9 @@ void playwindow::mids()
 {
     el=pf->enemyfactory(f->getsc());
     bf->e_creator(el,f,0);
+}
+
+void playwindow::slows()
+{
+    su->creator();
 }
