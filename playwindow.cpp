@@ -30,7 +30,7 @@ playwindow::playwindow(QWidget *parent) :
     ui->hplabel->raise();
     ui->hps->raise();
     s=new strike(pf->getel(),bf->getebl(),bf->getfbl(),f);
-    su=new supply(-50,-50,30,30,0,0,2,this,f);
+    su=new supply(-50,-50,60,60,0,0,2,this,f);
     connect(slow,SIGNAL(timeout()),this,SLOT(slows()));
     connect(this,SIGNAL(ended()),this,SLOT(endchoice()));
     connect(ref,SIGNAL(timeout()),this,SLOT(again()));

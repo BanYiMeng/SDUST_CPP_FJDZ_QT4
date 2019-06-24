@@ -21,6 +21,11 @@ void supply::update()
         else
             if (f->llt(0)<8&&f->llt(0)>0)
                 f->llt(1);
+        delete pix;
+        pix=new QPixmap(":resource/-1.png");
+        sx=sy=0;
+        x=-50;
+        y=-50;
     }
 
 }
@@ -49,15 +54,15 @@ void supply::creator()
     sx/=sqrt(sx*sx+sy*sy)/sp;
     sy/=sqrt(sx*sx+sy*sy)/sp;
     if(i==1)  {
-        pix = new QPixmap(":resource/logo.jpg");//up to missile
+        pix = new QPixmap(":resource/upgrade_bl2");//up to bullet_l2
         sc=1;
     }
     else if(i==2) {
-        pix = new QPixmap(":resource/missile.png");//up to bullet_l2
+        pix = new QPixmap(":resource/upgrade_missile");//up to missile
         sc=2;
     }
     else {
-        pix = new QPixmap(":resource/player.png");//add life
+        pix = new QPixmap(":resource/add_life");//add life
         sc=3;
     }
     show();
