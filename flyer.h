@@ -12,7 +12,7 @@ public:
     flyer(double,double,int,int,int,int,double,QWidget *);
     ~flyer();
     void paint();
-    void fall();
+    bool fall();
     void shoot();
     void move(QString);
     void wudi();

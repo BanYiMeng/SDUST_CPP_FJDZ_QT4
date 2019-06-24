@@ -83,6 +83,8 @@ void playwindow::again()
     bga->move();
     bgb->move();
     f->setmove();
+    if(f->llt(0)<=0)
+        gameover();
 }
 
 void playwindow::keytimer(){
@@ -118,4 +120,11 @@ void playwindow::mids()
 {
     el=pf->enemyfactory(f->getsc());
     bf->e_creator(el,f,0);
+}
+
+void playwindow::gameover(){
+    ref->stop();
+    im->stop();
+    mid->stop();
+    QMessageBox::information(this,"gameover","do you want to continue?",QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
 }

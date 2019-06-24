@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <QtCore>
 #include <QKeySequence>
+#include <QMessageBox>
 #include "flyer.h"
 #include "background.h"
 #include "chapter.h"
@@ -37,6 +38,8 @@ private slots:
     void keytimer2();
 
     void mids();
+
+    void gameover();
 private:
     Ui::playwindow *ui;
     background *bga,*bgb;

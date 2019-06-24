@@ -9,9 +9,9 @@ flyer::~flyer(){
 
 }
 
-void flyer::fall(){
-
-        pix->load("JPG");
+bool flyer::fall(){
+    pix->load("JPG");
+    return true;
 }
 
 void flyer::move(QString s){
