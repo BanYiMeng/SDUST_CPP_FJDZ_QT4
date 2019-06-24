@@ -45,9 +45,10 @@ void strike::f2e(){
         if ((f->getr()+el->at(i)->getr())*(f->getr()+el->at(i)->getr())>(f->getcx()-el->at(i)->getcx())*(f->getcx()-el->at(i)->getcx())+(f->getcy()-el->at(i)->getcy())*(f->getcy()-el->at(i)->getcy())){
             if(f->llt(0)>0)
             {
-                if (f->llt(-el->at(i)->llt(0))<=0)
+                if (f->llt(-el->at(i)->llt(0))<=0){
                     f->fall();
-                flag=true;
+                    flag=true;
+                }
             }
             delete el->operator [](i);
             el->removeAt(i);
@@ -63,9 +64,10 @@ void strike::f2eb(){
         if ((f->getr()+ebl->at(i)->getr())*(f->getr()+ebl->at(i)->getr())>(f->getcx()-ebl->at(i)->getcx())*(f->getcx()-ebl->at(i)->getcx())+(f->getcy()-ebl->at(i)->getcy())*(f->getcy()-ebl->at(i)->getcy())){
             if(f->llt(0)>0)
             {
-                if (f->llt(ebl->at(i)->llt(0))<=0)
+                if (f->llt(ebl->at(i)->llt(0))<=0){
                     f->fall();
-                flag=true;
+                    flag=true;
+                }
             }
             delete ebl->operator [](i);
             ebl->removeAt(i);

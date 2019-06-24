@@ -24,6 +24,7 @@ QList<enemy*>* planefatory::enemyfactory(int sc=0){
         elist[elist.length()-1]->show();
         QThread::usleep(99);
     }
+    l1--;
     return &elist;
 }
 
