@@ -10,10 +10,8 @@ flyer::~flyer(){
 }
 
 void flyer::fall(){
-    if(lt==0){
-        pix->load("JPG");//change bomb pix;
-        //还要加声音和消失的代码；
-    }
+
+        pix->load("JPG");
 }
 
 void flyer::move(QString s){
