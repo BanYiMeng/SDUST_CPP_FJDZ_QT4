@@ -21,7 +21,7 @@ enemy::enemy(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc=0,double 
         y=0-h;
         x=qrand()%(441-w)+80;
     }
-    sx=qrand()%451+50-x;
+    sx=qrand()%401+100-x;
     sy=800-y;
     sx/=sqrt(sx*sx+sy*sy)/sp;
     sy/=sqrt(sx*sx+sy*sy)/sp;

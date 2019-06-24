@@ -46,8 +46,8 @@ playwindow::~playwindow()
     delete pressedkeys;
     delete bga;
     delete bgb;
-    delete pf;
     delete bf;
+    delete pf;
     delete im;
     delete mid;
     delete su;
