@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->Starter->setGraphicsEffect(shadowEffect);
     ui->Cg->setGraphicsEffect(shadowEffect);
     mp=new QWebView;
-    mp->load(QUrl("https://test-1254946716.cos.ap-chongqing.myqcloud.com/main-bgm.mp3"));
+    mp->load(QUrl::fromLocalFile("/home/tester/resource/main-bgm.html"));
     connect(ui->Cg,SIGNAL(clicked()),this,SLOT(on_Cg_clicked()));
     connect(ui->About,SIGNAL(clicked()),this,SLOT(on_About_clicked()));
     connect(ui->Starter,SIGNAL(clicked()),this,SLOT(on_Starter_clicked()));
@@ -21,7 +21,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-    delete mp;
     delete ui;
 }
 
@@ -33,7 +32,7 @@ void MainWindow::on_Cg_clicked()
     duo=true;
     wv=new QWebView;
     wv->setAttribute(Qt::WA_DeleteOnClose);
-    wv->load(QUrl("https://test-1254946716.cos.ap-chongqing.myqcloud.com/cg.mp4"));
+    wv->load(QUrl::fromLocalFile("/home/tester/resource/cg.html"));
     wv->showFullScreen();
     end=new QTimer(this);
     end->start(210001);
@@ -46,7 +45,7 @@ void MainWindow::Exit_Cg()
     delete wv;
     delete end;
     mp=new QWebView;
-    mp->load(QUrl("https://test-1254946716.cos.ap-chongqing.myqcloud.com/main-bgm.mp3"));
+    mp->load(QUrl::fromLocalFile("/home/tester/resource/main-bgm.html"));
     duo=false;
 }
 
@@ -93,7 +92,7 @@ void MainWindow::Exit_Starter()
 void MainWindow::Reboot()
 {
     mp=new QWebView;
-    mp->load(QUrl("https://test-1254946716.cos.ap-chongqing.myqcloud.com/main-bgm.mp3"));
+    mp->load(QUrl::fromLocalFile("/home/tester/resource/main-bgm.html"));
     this->show();
     delete p;
 }
