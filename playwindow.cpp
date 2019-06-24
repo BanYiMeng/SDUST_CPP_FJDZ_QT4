@@ -66,12 +66,13 @@ void playwindow::closeEvent(QCloseEvent *event=0)
 
 void playwindow::endchoice()
 {
-    QMessageBox::StandardButton ans=QMessageBox::warning(NULL,QString::fromUtf8("警告"),QString::fromUtf8("是否退出对局"),QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
     im->stop();
     ref->stop();
     mid->stop();
-    if(ans == QMessageBox::Yes)
-    {
+    QString qs="yours score is:";
+    qs.append(f->getsc());
+    QMessageBox::about(NULL,"Laji!",qs);
+    if(QMessageBox::Ok){
         close();
     }
 }
