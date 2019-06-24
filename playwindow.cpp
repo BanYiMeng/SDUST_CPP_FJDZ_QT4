@@ -67,6 +67,9 @@ void playwindow::closeEvent(QCloseEvent *event=0)
 void playwindow::endchoice()
 {
     QMessageBox::StandardButton ans=QMessageBox::warning(NULL,QString::fromUtf8("警告"),QString::fromUtf8("是否退出对局"),QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
+    im->stop();
+    ref->stop();
+    mid->stop();
     if(ans == QMessageBox::Yes)
     {
         close();
@@ -84,7 +87,7 @@ void playwindow::again()
     bgb->move();
     f->setmove();
     if(f->llt(0)<=0)
-        gameover();
+        endchoice();
 }
 
 void playwindow::keytimer(){
@@ -120,11 +123,4 @@ void playwindow::mids()
 {
     el=pf->enemyfactory(f->getsc());
     bf->e_creator(el,f,0);
-}
-
-void playwindow::gameover(){
-    ref->stop();
-    im->stop();
-    mid->stop();
-    QMessageBox::information(this,"gameover","do you want to continue?",QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
 }
