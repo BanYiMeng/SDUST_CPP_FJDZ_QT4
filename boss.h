@@ -4,11 +4,16 @@
 #include <QMainWindow>
 #include <QObject>
 #include <QWidget>
+#include "flyobjects.h"
+#include "flyer.h"
+#include "f_bullet.h"
 
-class boss
+class boss:public flyobjects
 {
 public:
-    boss();
+    boss(double ,double ,int ,int ,int ,int ,double ,QWidget* );
+    void strike(QList<f_bullet*>*);
+    void move();
 };
 
 #endif // BOSS_H

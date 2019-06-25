@@ -10,9 +10,11 @@ playwindow::playwindow(QWidget *parent) :
     bga=new background(0,0,600,800,0,0,0,this,chapter::bgr(0));
     bgb=new background(0,-800,600,800,0,0,0,this,chapter::bgr(0));
     f=new flyer(270,649,60,82,8,0,0,this);
+    bo = new boss(260,-90,80,90,1000,0,0,this);
     f->show();
     bga->show();
     bgb->show();
+    bo->show();
     ui->player->raise();
     pressedkeys=new QString();
     ref=new QTimer(this);
@@ -99,6 +101,9 @@ void playwindow::again()
     bga->move();
     bgb->move();
     f->setmove();
+    bo->move();
+    bo->setmove();
+    bo->strike(bf->getfbl());
     if(s->getflag())
         endchoice();
 }

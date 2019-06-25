@@ -14,6 +14,7 @@
 #include "bulletfactory.h"
 #include "strike.h"
 #include "supply.h"
+#include "boss.h"
 
 namespace Ui {
 class playwindow;
@@ -54,6 +55,7 @@ private:
     QList<enemy*> *el;
     strike *s;
     supply *su;
+    boss *bo;
 signals:
     void exited(int);
 };
