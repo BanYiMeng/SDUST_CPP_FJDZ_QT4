@@ -29,6 +29,7 @@ playwindow::playwindow(QWidget *parent) :
     ui->score->raise();
     ui->hplabel->raise();
     ui->hps->raise();
+    el=pf->enemyfactory(-1);
     s=new strike(pf->getel(),bf->getebl(),bf->getfbl(),f);
     su=new supply(-50,-50,60,60,0,0,2,this,f);
     connect(slow,SIGNAL(timeout()),this,SLOT(slows()));
@@ -40,18 +41,22 @@ playwindow::playwindow(QWidget *parent) :
 
 playwindow::~playwindow()
 {
-    delete ui;
-    delete f;
+    setWindowTitle("stopping...");
     delete ref;
+    delete im;
+    delete mid;
+    delete slow;
+    QEventLoop eventloop;
+    QTimer::singleShot(111, &eventloop, SLOT(quit()));
+    eventloop.exec();
     delete pressedkeys;
     delete bga;
     delete bgb;
     delete bf;
     delete pf;
-    delete im;
-    delete mid;
     delete su;
-    delete slow;
+    delete f;
+    delete ui;
 }
 
 void playwindow::keyPressEvent(QKeyEvent *ev){
@@ -129,8 +134,8 @@ void playwindow::keytimer2()
 
 void playwindow::mids()
 {
-    el=pf->enemyfactory(f->getsc());
     bf->e_creator(el,f,0);
+    pf->enemyfactory(f->getsc());
 }
 
 void playwindow::slows()

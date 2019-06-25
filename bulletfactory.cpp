@@ -9,12 +9,15 @@ void bulletfactory::e_creator(QList<enemy*> *e, flyobjects *m, int x=0)
 {
     for (int i=0;i<e->length();i++)
     {
-        eblist.append(new e_bullet(e->at(i)->getcx()-16,e->at(i)->getcy()-16,24,24,-3,0,3,p,QString(":/resource/enemy_bullet_l1")));
-        eblist[eblist.length()-1]->aim(e->at(i),m);
-        eblist[eblist.length()-1]->show();
-        QEventLoop loop;
-        QTimer::singleShot(100, &loop, SLOT(quit()));
-        loop.exec();
+        if (e->at(i)->getcx()<599&&e->at(i)->getcx()>1&&e->at(i)->getcy()>1&&e->at(i)->getcy()<799)
+        {
+            eblist.append(new e_bullet(e->at(i)->getcx()-16,e->at(i)->getcy()-16,24,24,-3,0,3,p,QString(":/resource/enemy_bullet_l1")));
+            eblist[eblist.length()-1]->aim(e->at(i),m);
+            eblist[eblist.length()-1]->show();
+            QEventLoop loop;
+            QTimer::singleShot(101, &loop, SLOT(quit()));
+            loop.exec();
+        }
     }
 }
 
