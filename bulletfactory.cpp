@@ -50,15 +50,15 @@ void bulletfactory::moves()
         if(fblist.at(i)->getcy()<-50){
             delete fblist.operator [](i);
             fblist.removeAt(i);
-            if (i>0)
-                i--;
+         if (i>0)
+            i--;
         }
     }
     for (int i=0;i<eblist.length();i++){
         eblist.at(i)->move();
-    if(eblist.at(i)->getcy()<-50||eblist.at(i)->getcy()>850||eblist.at(i)->getcx()<-50||eblist.at(i)->getcx()>650){
-        delete eblist.operator [](i);
-        eblist.removeAt(i);
+        if(eblist.at(i)->getcy()<-50||eblist.at(i)->getcy()>850||eblist.at(i)->getcx()<-50||eblist.at(i)->getcx()>650){
+            delete eblist.operator [](i);
+            eblist.removeAt(i);
         if (i>0)
             i--;
     }
