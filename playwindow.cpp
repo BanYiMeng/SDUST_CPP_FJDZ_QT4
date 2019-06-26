@@ -24,12 +24,11 @@ playwindow::playwindow(QWidget *parent) :
     slow=new QTimer(this);
     slow->start(60001);
     pf=new planefatory(this);
-    bf=new bulletfactory(this);
+    bf=new bulletfactory(pf->enemyfactory(-1),f,this);
     ui->scorelabel->raise();
     ui->score->raise();
     ui->hplabel->raise();
     ui->hps->raise();
-    el=pf->enemyfactory(-1);
     s=new strike(pf->getel(),bf->getebl(),bf->getfbl(),f);
     su=new supply(-50,-50,60,60,0,0,2,this,f);
     connect(slow,SIGNAL(timeout()),this,SLOT(slows()));
@@ -42,13 +41,10 @@ playwindow::playwindow(QWidget *parent) :
 playwindow::~playwindow()
 {
     setWindowTitle("stopping...");
-    delete ref;
-    delete im;
-    delete mid;
-    delete slow;
-    QEventLoop eventloop;
-    QTimer::singleShot(111, &eventloop, SLOT(quit()));
-    eventloop.exec();
+    ref->deleteLater();
+    im->deleteLater();
+    mid->deleteLater();
+    slow->deleteLater();
     delete pressedkeys;
     delete bga;
     delete bgb;
@@ -60,17 +56,50 @@ playwindow::~playwindow()
 }
 
 void playwindow::keyPressEvent(QKeyEvent *ev){
+    if(ev->key() == Qt::Key_P)
+        f->wudi();
+    else if(ev->key() == Qt::Key_L)
+    {
+        if (f->llt(0)==-1)
+            f->llt(9);
+    }
     pressedkeys->append(static_cast<Qt::Key>(ev->key()));
 }
 
 void playwindow::keyReleaseEvent(QKeyEvent *ev){
     if (ev->key() == Qt::Key_W)
+    {
+        pressedkeys->remove(static_cast<Qt::Key>(ev->key()));
         f->setsp(0);
-    pressedkeys->remove(static_cast<Qt::Key>(ev->key()));
+    }
+    else if (ev->key() == Qt::Key_Escape)
+    {
+        pressedkeys->remove(static_cast<Qt::Key>(ev->key()));
+        im->stop();
+        ref->stop();
+        mid->stop();
+        slow->stop();
+        QMessageBox::StandardButton mb = QMessageBox::question(NULL,QString::fromUtf8("游戏已冻结"),QString::fromUtf8("是否返回主界面?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+        if (mb == QMessageBox::Yes)
+            close();
+        else
+        {
+            ref->start(11);
+            im->start(111);
+            mid->start(1111);
+            slow->start(60001);
+        }
+    }
+    else
+        pressedkeys->remove(static_cast<Qt::Key>(ev->key()));
 }
 
 void playwindow::closeEvent(QCloseEvent *event=0)
 {
+    im->stop();
+    ref->stop();
+    mid->stop();
+    slow->stop();
     emit exited(f->getsc());
 }
 
@@ -79,6 +108,7 @@ void playwindow::endchoice()
     im->stop();
     ref->stop();
     mid->stop();
+    slow->stop();
     QString qs="yours score is:";
     qs.append(QString::number(f->getsc(),10));
     QMessageBox::about(NULL,"Laji!",qs);
@@ -117,16 +147,12 @@ void playwindow::keytimer(){
     if(pressedkeys->contains(Qt::Key_D)) {
         f->move("right");
     }
-    if(pressedkeys->contains(Qt::Key_P)) {
-       f->wudi();
-    }
-
 }
 
 void playwindow::keytimer2()
 {
     if(pressedkeys->contains(Qt::Key_H)) {
-       bf->f_creator(f,f->optt(0));
+       bf->f_creator(f->optt(0));
     }
     ui->score->display(f->getsc());
     ui->hps->display(f->llt(0));
@@ -134,8 +160,8 @@ void playwindow::keytimer2()
 
 void playwindow::mids()
 {
-    bf->e_creator(el,f,0);
-    pf->enemyfactory(f->getsc());
+    bf->e_creator(0);
+     pf->enemyfactory(f->getsc());
 }
 
 void playwindow::slows()

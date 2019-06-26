@@ -1,10 +1,9 @@
 #ifndef PLANEFATORY_H
 #define PLANEFATORY_H
 
-#include <QThread>
 #include "enemy.h"
 
-class planefatory : public QThread
+class planefatory
 {
 public:
     QList<enemy*>* enemyfactory(int);

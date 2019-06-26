@@ -2,11 +2,8 @@
 #define PLAYWINDOW_H
 
 #include <QKeyEvent>
-#include <QCloseEvent>
 #include <QMessageBox>
 #include <QtCore>
-#include <QKeySequence>
-#include <QMessageBox>
 #include "flyer.h"
 #include "background.h"
 #include "chapter.h"
@@ -51,7 +48,6 @@ private:
     QString *pressedkeys;
     planefatory *pf;
     bulletfactory *bf;
-    QList<enemy*> *el;
     strike *s;
     supply *su;
 signals:

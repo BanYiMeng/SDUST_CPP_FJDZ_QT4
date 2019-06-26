@@ -28,10 +28,10 @@ SOURCES += main.cpp\
     chapter.cpp \
     bullet.cpp \
     planefatory.cpp \
-    bulletfactory.cpp \
     e_bullet.cpp \
     f_bullet.cpp \
-    strike.cpp
+    strike.cpp \
+    bulletfactory.cpp
 
 HEADERS  += mainwindow.h \
     flyobjects.h \
@@ -45,10 +45,10 @@ HEADERS  += mainwindow.h \
     chapter.h \
     bullet.h \
     planefatory.h \
-    bulletfactory.h \
     e_bullet.h \
     f_bullet.h \
-    strike.h
+    strike.h \
+    bulletfactory.h
 
 FORMS    += mainwindow.ui \
     playwindow.ui
