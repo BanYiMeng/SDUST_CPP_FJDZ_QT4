@@ -10,19 +10,16 @@ QList<enemy*>* planefatory::enemyfactory(int sc=0){
     {
         elist.append(new enemy(0 ,0,34,24,10,1,1,p,QString(":/resource/enemy_l1")));
         elist[elist.length()-1]->show();
-        QThread::usleep(99);
     }
     for (;l2<sc/10+sc%10/3;l2++)
     {
         elist.append(new enemy(0 ,0,46,60,30,3,0.6,p,QString(":/resource/enemy_l2")));
         elist[elist.length()-1]->show();
-        QThread::usleep(99);
     }
     for (;l3<sc/10;l3++)
     {
         elist.append(new enemy(0 ,0,110,164,55,5,0.4,p,QString(":/resource/enemy_l3")));
         elist[elist.length()-1]->show();
-        QThread::usleep(99);
     }
     l1--;
     return &elist;

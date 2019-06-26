@@ -129,5 +129,4 @@ void MainWindow::Reboot(int i=0)
     mp=new QWebView;
     mp->load(QUrl::fromLocalFile("/home/tester/resource/main-bgm.html"));
     this->show();
-    delete p;
 }
