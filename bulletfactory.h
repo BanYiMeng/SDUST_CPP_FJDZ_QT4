@@ -27,7 +27,7 @@ private:
     QList<f_bullet*> fblist;
     QList<enemy*> *e;
     flyobjects *m;
-    int i;
+    int k;
     QTimer *mt;
 };
 

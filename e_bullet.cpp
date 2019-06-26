@@ -19,3 +19,9 @@ void e_bullet::move()
     x+=sx;
     setmove();
 }
+
+void e_bullet::b1_l1(int xx=0,int yy=0)
+{
+    sx=xx;
+    sy=yy;
+}

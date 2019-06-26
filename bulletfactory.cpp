@@ -8,7 +8,7 @@ bulletfactory::bulletfactory(QList<enemy*> *ee,flyobjects *mm,QWidget *pp=0):p(p
 
 void bulletfactory::e_creator(int x=0)
 {
-    i=0;
+    k=0;
     mt->start(999/e->length());
 }
 
@@ -56,7 +56,7 @@ void bulletfactory::moves()
     }
     for (int i=0;i<eblist.length();i++){
         eblist.at(i)->move();
-    if(eblist.at(i)->getcy()<-50||eblist.at(i)->getcy()>850){
+    if(eblist.at(i)->getcy()<-50||eblist.at(i)->getcy()>850||eblist.at(i)->getcx()<-50||eblist.at(i)->getcx()>650){
         delete eblist.operator [](i);
         eblist.removeAt(i);
         if (i>0)
@@ -77,11 +77,11 @@ QList<f_bullet*>* bulletfactory::getfbl()
 
 void bulletfactory::ebmake()
 {
-    if (i<e->length()&&e->at(i)->getcx()<599&&e->at(i)->getcx()>1&&e->at(i)->getcy()>1&&e->at(i)->getcy()<799)
+    if (k<e->length()&&e->at(k)->getcx()<599&&e->at(k)->getcx()>1&&e->at(k)->getcy()>1&&e->at(k)->getcy()<799)
     {
-        eblist.append(new e_bullet(e->at(i)->getcx()-16,e->at(i)->getcy()-16,24,24,-3,0,3,p,QString(":/resource/enemy_bullet_l1")));
-        eblist[eblist.length()-1]->aim(e->at(i),m);
+        eblist.append(new e_bullet(e->at(k)->getcx()-16,e->at(k)->getcy()-16,24,24,-3,0,3,p,QString(":/resource/enemy_bullet_l1")));
+        eblist[eblist.length()-1]->aim(e->at(k),m);
         eblist[eblist.length()-1]->show();
     }
-    i++;
+    k++;
 }

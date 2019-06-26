@@ -40,11 +40,16 @@ private slots:
 
     void slows();
 
+    void gameover();
+
+    void showboss();
+
+    void bbos();
 private:
     Ui::playwindow *ui;
     background *bga,*bgb;
     flyer *f;
-    QTimer *ref,*im,*mid,*slow;
+    QTimer *ref,*im,*mid,*slow,*bos;
     void closeEvent(QCloseEvent *);
     QString *pressedkeys;
     planefatory *pf;
@@ -52,6 +57,7 @@ private:
     strike *s;
     supply *su;
     boss *bo;
+    bool bossflag;
 signals:
     void exited(int);
 };

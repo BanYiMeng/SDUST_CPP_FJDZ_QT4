@@ -10,11 +10,10 @@ playwindow::playwindow(QWidget *parent) :
     bga=new background(0,0,600,800,0,0,0,this,chapter::bgr(0));
     bgb=new background(0,-800,600,800,0,0,0,this,chapter::bgr(0));
     f=new flyer(270,649,60,82,8,0,0,this);
-    bo = new boss(260,-90,80,90,1000,0,0,this);
+    bo = new boss(260,-90,80,90,10000,0,3,this);
     f->show();
     bga->show();
     bgb->show();
-    bo->show();
     ui->player->raise();
     pressedkeys=new QString();
     ref=new QTimer(this);
@@ -25,6 +24,7 @@ playwindow::playwindow(QWidget *parent) :
     mid->start(1111);
     slow=new QTimer(this);
     slow->start(60001);
+    bos=new QTimer(this);
     pf=new planefatory(this);
     bf=new bulletfactory(pf->enemyfactory(-1),f,this);
     ui->scorelabel->raise();
@@ -38,6 +38,7 @@ playwindow::playwindow(QWidget *parent) :
     connect(ref,SIGNAL(timeout()),this,SLOT(keytimer()));
     connect(im,SIGNAL(timeout()),this,SLOT(keytimer2()));
     connect(mid,SIGNAL(timeout()),this,SLOT(mids()));
+    connect(bos,SIGNAL(timeout),this,SLOT(bbos()));
 }
 
 playwindow::~playwindow()
@@ -47,6 +48,8 @@ playwindow::~playwindow()
     im->deleteLater();
     mid->deleteLater();
     slow->deleteLater();
+    bos->deleteLater();
+    delete bo;
     delete pressedkeys;
     delete bga;
     delete bgb;
@@ -107,6 +110,7 @@ void playwindow::endchoice()
     ref->stop();
     mid->stop();
     slow->stop();
+    bos->stop();
     QString qs="yours score is:";
     qs.append(QString::number(f->getsc(),10));
     QMessageBox::about(NULL,"Laji!",qs);
@@ -115,6 +119,17 @@ void playwindow::endchoice()
     }
 }
 
+void playwindow::gameover(){
+    im->stop();
+    ref->stop();
+    mid->stop();
+    slow->stop();
+    bos->stop();
+    QMessageBox::about(NULL,"NiuBi","Congratulations!");
+    if(QMessageBox::Ok){
+        close();
+    }
+}
 void playwindow::again()
 {
     f->setsc(s->e2fb());
@@ -127,9 +142,18 @@ void playwindow::again()
     bga->move();
     bgb->move();
     f->setmove();
-    bo->move();
-    bo->setmove();
-    bo->strike(bf->getfbl());
+    if(f->getsc()>=10&&bossflag==false){
+        showboss();
+        bossflag=true;
+    }
+    else if(bossflag==true){
+        bo->move();
+        if(bo->strike(bf->getfbl()))
+        {
+            bo->fall();
+            gameover();
+        }
+    }
     if(s->getflag())
         endchoice();
 }
@@ -168,4 +192,14 @@ void playwindow::mids()
 void playwindow::slows()
 {
     su->creator();
+}
+
+void playwindow::showboss(){
+    bo->show();
+    mid->stop();
+    bos->start(1111);
+}
+
+void playwindow::bbos(){
+     bo->shoot(bf->getebl());
 }
