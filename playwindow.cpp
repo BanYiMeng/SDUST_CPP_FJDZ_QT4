@@ -161,7 +161,7 @@ void playwindow::keytimer2()
 void playwindow::mids()
 {
     bf->e_creator(0);
-     pf->enemyfactory(f->getsc());
+    pf->enemyfactory(f->getsc());
 }
 
 void playwindow::slows()
