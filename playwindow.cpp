@@ -98,10 +98,6 @@ void playwindow::keyReleaseEvent(QKeyEvent *ev){
 
 void playwindow::closeEvent(QCloseEvent *event=0)
 {
-    im->stop();
-    ref->stop();
-    mid->stop();
-    slow->stop();
     emit exited(f->getsc());
 }
 
