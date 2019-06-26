@@ -9,8 +9,8 @@ playwindow::playwindow(QWidget *parent) :
     this->setWindowIcon(QIcon(":/resource/logo"));
     bga=new background(0,0,600,800,0,0,0,this,chapter::bgr(0));
     bgb=new background(0,-800,600,800,0,0,0,this,chapter::bgr(0));
-    f=new flyer(270,649,60,82,8,0,0,this);
-    bo = new boss(260,-90,80,90,10000,0,3,this);
+    f=new flyer(270,649,60,82,100,0,0,this);
+    bo = new boss(260,-90,80,90,5000,0,3,this);
     f->show();
     bga->show();
     bgb->show();
@@ -49,13 +49,13 @@ playwindow::~playwindow()
     mid->deleteLater();
     slow->deleteLater();
     bos->deleteLater();
-    delete bo;
     delete pressedkeys;
     delete bga;
     delete bgb;
     delete bf;
     delete pf;
     delete su;
+    delete bo;
     delete f;
     delete ui;
 }
@@ -142,6 +142,14 @@ void playwindow::again()
     bga->move();
     bgb->move();
     f->setmove();
+    if(bossflag==true){
+        bo->move();
+        if(bo->strike(bf->getfbl()))
+        {
+            bo->fall();
+            gameover();
+        }
+    }
     if(s->getflag())
         endchoice();
 }
@@ -176,14 +184,6 @@ void playwindow::mids()
     if(f->getsc()>=10&&bossflag==false){
         showboss();
         bossflag=true;
-    }
-    else if(bossflag==true){
-        bo->move();
-        if(bo->strike(bf->getfbl()))
-        {
-            bo->fall();
-            gameover();
-        }
     }
     bf->e_creator(0);
     pf->enemyfactory(f->getsc());
