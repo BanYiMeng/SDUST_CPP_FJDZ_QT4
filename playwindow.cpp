@@ -38,7 +38,7 @@ playwindow::playwindow(QWidget *parent) :
     connect(ref,SIGNAL(timeout()),this,SLOT(keytimer()));
     connect(im,SIGNAL(timeout()),this,SLOT(keytimer2()));
     connect(mid,SIGNAL(timeout()),this,SLOT(mids()));
-    connect(bos,SIGNAL(timeout),this,SLOT(bbos()));
+    connect(bos,SIGNAL(timeout()),this,SLOT(bbos()));
 }
 
 playwindow::~playwindow()
@@ -142,18 +142,6 @@ void playwindow::again()
     bga->move();
     bgb->move();
     f->setmove();
-    if(f->getsc()>=10&&bossflag==false){
-        showboss();
-        bossflag=true;
-    }
-    else if(bossflag==true){
-        bo->move();
-        if(bo->strike(bf->getfbl()))
-        {
-            bo->fall();
-            gameover();
-        }
-    }
     if(s->getflag())
         endchoice();
 }
@@ -185,6 +173,18 @@ void playwindow::keytimer2()
 
 void playwindow::mids()
 {
+    if(f->getsc()>=10&&bossflag==false){
+        showboss();
+        bossflag=true;
+    }
+    else if(bossflag==true){
+        bo->move();
+        if(bo->strike(bf->getfbl()))
+        {
+            bo->fall();
+            gameover();
+        }
+    }
     bf->e_creator(0);
     pf->enemyfactory(f->getsc());
 }
