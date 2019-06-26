@@ -1,8 +1,8 @@
 #include "boss.h"
 
-boss::boss(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc=0,double pp=0,QWidget *p=0):flyobjects(xx,yy,ww,hh,tt,cc,pp,p),pt(p)
+boss::boss(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc=0,double pp=0,QWidget *p=0,const QString &in=0):flyobjects(xx,yy,ww,hh,tt,cc,pp,p),pt(p)
 {
-    pix = new QPixmap(":/resource/boss_l1");
+    pix = new QPixmap(in);
     frame->setWindowFlags(Qt::WindowStaysOnTopHint);
     direct=1;
 }
@@ -12,12 +12,10 @@ boss::~boss(){
 }
 
 bool boss::strike(QList<f_bullet*>* ql){
-    int t=0;
         for(int i=0;i<ql->length();i++){
-            if ((r+ql->at(i)->getr())*(r+ql->at(i)->getr())>(cx-ql->at(i)->getcx())*(cx-ql->at(i)->getcx())+(cy-ql->at(i)->getcy())*(cy-ql->at(i)->getcy())){
+            if ((r+ql->at(i)->getr())*(r+ql->at(i)->getr())>((cx-ql->at(i)->getcx())*(cx-ql->at(i)->getcx())+(cy-ql->at(i)->getcy())*(cy-ql->at(i)->getcy()))){
                 if (llt(ql->at(i)->llt(0))<=0)
                 {
-                    t+=sc;
                     delete ql->operator [](i);
                     ql->removeAt(i);
                     i=-1;
@@ -40,11 +38,11 @@ bool boss::strike(QList<f_bullet*>* ql){
 
 void boss::move(){
     x+=direct;
-    if(x==520)
+    if(x==344)
         direct=-1;
     else if(x==0)
         direct=1;
-    if(y<90)
+    if(y<0)
         y++;
     setmove();
 }

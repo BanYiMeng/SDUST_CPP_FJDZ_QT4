@@ -57,7 +57,7 @@ private:
     strike *s;
     supply *su;
     boss *bo;
-    bool bossflag;
+    int bossflag;
 signals:
     void exited(int);
 };

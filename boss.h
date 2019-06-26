@@ -9,7 +9,7 @@
 class boss:public flyobjects
 {
 public:
-    boss(double ,double ,int ,int ,int ,int ,double ,QWidget* );
+    boss(double ,double ,int ,int ,int ,int ,double ,QWidget *,const QString &);
     ~boss();
     bool strike(QList<f_bullet*>*);
     void move();

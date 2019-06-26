@@ -1,6 +1,6 @@
 #include "flyobjects.h"
 
-flyobjects::flyobjects(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc=0,double pp=0,QWidget *p=0):w(ww),h(hh),lt(tt),sc(cc),r(sqrt(ww*ww/4+hh*hh/4)),x(xx),y(yy),sp(pp),cx(xx+(double)ww/2),cy(yy+(double)hh/2)
+flyobjects::flyobjects(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc=0,double pp=0,QWidget *p=0):w(ww),h(hh),lt(tt),sc(cc),r(sqrt(ww*ww/4+hh*hh/4)-1),x(xx),y(yy),sp(pp),cx(xx+(double)ww/2),cy(yy+(double)hh/2)
 {
     frame = new QFrame;
     frame->setParent(p);

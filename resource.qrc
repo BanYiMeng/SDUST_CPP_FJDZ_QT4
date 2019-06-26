@@ -17,5 +17,6 @@
         <file>resource/upgrade_bl2.png</file>
         <file>resource/upgrade_missile.png</file>
         <file>resource/add_life.png</file>
+        <file>resource/boss_l1_mod.png</file>
     </qresource>
 </RCC>
