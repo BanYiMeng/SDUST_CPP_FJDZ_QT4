@@ -2,7 +2,7 @@
 
 strike::strike(QList<enemy*> *e,QList<e_bullet*> *eb,QList<f_bullet*> *fb,flyer *ff):el(e),ebl(eb),fbl(fb),f(ff),flag(false)
 {
-
+    b=new QWebView();
 }
 
 int strike::e2fb()
@@ -24,6 +24,7 @@ int strike::e2fb()
                     k=-1;
                     if (i>0)
                         i--;
+                    b->load(QUrl::fromLocalFile("/home/tester/resource/shot.html"));
                 }
                 else
                 {
@@ -79,4 +80,9 @@ void strike::f2eb(){
 
 bool strike::getflag(){
     return flag;
+}
+
+strike::~strike()
+{
+    delete b;
 }

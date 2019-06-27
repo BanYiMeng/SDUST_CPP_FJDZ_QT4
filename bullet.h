@@ -1,11 +1,7 @@
 #ifndef BULLET_H
 #define BULLET_H
 
-#include <QMainWindow>
-#include <QObject>
-#include <QWidget>
-#include <QPrinter>
-#include <QGraphicsItem>
+#include <QtWebKit>
 #include "flyobjects.h"
 
 class Bullet:public flyobjects

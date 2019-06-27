@@ -18,5 +18,8 @@
         <file>resource/upgrade_missile.png</file>
         <file>resource/add_life.png</file>
         <file>resource/boss_l1_mod.png</file>
+        <file>resource/enemy_l1_b.gif</file>
+        <file>resource/enemy_l2_b.gif</file>
+        <file>resource/enemy_l3_b.gif</file>
     </qresource>
 </RCC>

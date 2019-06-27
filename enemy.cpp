@@ -4,7 +4,6 @@ enemy::enemy(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc=0,double 
 {
     pix=new QPixmap(in);
     frame->setWindowFlags(Qt::WindowStaysOnTopHint);
-    qsrand(QTime::currentTime().msec());
     int i=qrand()%3;
     if (i==0)
     {

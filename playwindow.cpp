@@ -11,7 +11,7 @@ playwindow::playwindow(QWidget *parent) :
     bgb=new background(0,-800,600,800,0,0,0,this,chapter::bgr(0));
     f=new flyer(270,649,60,82,8,0,0,this);
     bo = new boss(0,-200,256,191,10000,0,3,this,chapter::bpm(0));
-    bossflag=0;
+    bossflag=false;
     f->show();
     bga->show();
     bgb->show();
@@ -92,7 +92,8 @@ void playwindow::keyReleaseEvent(QKeyEvent *ev){
         {
             ref->start(11);
             im->start(111);
-            mid->start(1111);
+            if (bossflag==false)
+                mid->start(1111);
             slow->start(60001);
         }
     }
@@ -143,7 +144,7 @@ void playwindow::again()
     bga->move();
     bgb->move();
     f->setmove();
-    if(bossflag==1){
+    if(bossflag==true){
         bo->move();
         if(bo->strike(bf->getfbl()))
         {
@@ -182,9 +183,9 @@ void playwindow::keytimer2()
 
 void playwindow::mids()
 {
-    if(f->getsc()>=10&&bossflag==0){
+    if(f->getsc()>=10&&bossflag==false){
         showboss();
-        bossflag=1;
+        bossflag=true;
     }
     bf->e_creator(0);
     pf->enemyfactory(f->getsc());

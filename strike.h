@@ -14,12 +14,14 @@ public:
     void f2e();
     void f2eb();
     bool getflag();
+    ~strike();
 private:
     QList<enemy*> *el;
     QList<e_bullet*> *ebl;
     QList<f_bullet*> *fbl;
     flyer *f;
     bool flag;
+    QWebView *b;
 };
 
 #endif // STRIKE_H
