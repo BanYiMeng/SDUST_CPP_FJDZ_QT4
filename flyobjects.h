@@ -11,7 +11,7 @@
 #include <QBitmap>
 #include <math.h>
 
-class flyobjects
+class flyobjects : public QObject
 {
 public:
     flyobjects(double,double,int,int,int,int,double,QWidget *);

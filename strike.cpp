@@ -21,7 +21,7 @@ int strike::e2fb()
                 {
                     mediaObject->play();
                     t+=el->at(i)->getsc();
-                    delete el->operator [](i);
+                    el->at(i)->fall();
                     delete fbl->operator [](k);
                     el->removeAt(i);
                     fbl->removeAt(k);

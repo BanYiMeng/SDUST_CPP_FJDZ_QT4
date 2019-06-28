@@ -23,4 +23,3 @@ private:
 };
 
 #endif // FLYER_H
-//

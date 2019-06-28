@@ -23,7 +23,6 @@ SOURCES += main.cpp\
     supply.cpp \
     background.cpp \
     special.cpp \
-    enemy.cpp \
     boss.cpp \
     chapter.cpp \
     bullet.cpp \
@@ -31,7 +30,8 @@ SOURCES += main.cpp\
     e_bullet.cpp \
     f_bullet.cpp \
     strike.cpp \
-    bulletfactory.cpp
+    bulletfactory.cpp \
+    enemy.cpp
 
 HEADERS  += mainwindow.h \
     flyobjects.h \
@@ -40,7 +40,6 @@ HEADERS  += mainwindow.h \
     supply.h \
     background.h \
     special.h \
-    enemy.h \
     boss.h \
     chapter.h \
     bullet.h \
@@ -48,7 +47,8 @@ HEADERS  += mainwindow.h \
     e_bullet.h \
     f_bullet.h \
     strike.h \
-    bulletfactory.h
+    bulletfactory.h \
+    enemy.h
 
 FORMS    += mainwindow.ui \
     playwindow.ui
