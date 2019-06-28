@@ -4,6 +4,7 @@
 #include <QTimer>
 #include <QLabel>
 #include <QMovie>
+#include "special.h"
 #include "flyobjects.h"
 
 class enemy : public flyobjects

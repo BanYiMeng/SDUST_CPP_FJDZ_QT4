@@ -2,7 +2,7 @@
 
 enemy::enemy(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc=0,double pp=0,QWidget *p=0,const QString &in=0):flyobjects(xx,yy,ww,hh,tt,cc,pp,p)
 {
-    ql = new QLabel(frame);
+    ql = new QLabel(p);
     ql->resize(w,h);
     pix=new QPixmap(in);
     frame->setWindowFlags(Qt::WindowStaysOnTopHint);
@@ -38,19 +38,11 @@ void enemy::move()
 
 void enemy::fall()
 {
-    if(sc==1){
-        qm = new QMovie(":/resource/enemy_l1_b.gif");
-        QTimer::singleShot(401,this,SLOT(remover()));
-    }
-    else if(sc==3){
-        qm = new QMovie(":/resource/enemy_l2_b.gif");
-        QTimer::singleShot(481,this,SLOT(remover()));
-    }
-    else if(sc==5){
-        qm = new QMovie(":/resource/enemy_l3_b.gif");
-        QTimer::singleShot(541,this,SLOT(remover()));
-    }
+    qm = new QMovie(special::boom(sc));
+    QTimer::singleShot(special::boom_T(sc),this,SLOT(remover()));
+    frame->hide();
     ql->setMovie(qm);
+    ql->move(x,y);
     ql->show();
     qm->start();
 }
