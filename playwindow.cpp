@@ -53,6 +53,7 @@ playwindow::~playwindow()
     delete pressedkeys;
     delete bga;
     delete bgb;
+    delete s;
     delete bf;
     delete pf;
     delete su;
@@ -183,7 +184,7 @@ void playwindow::keytimer2()
 
 void playwindow::mids()
 {
-    if(f->getsc()>=10&&bossflag==false){
+    if(f->getsc()>=150&&bossflag==false){
         showboss();
         bossflag=true;
     }

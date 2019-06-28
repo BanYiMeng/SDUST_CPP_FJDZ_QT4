@@ -1,6 +1,7 @@
 #ifndef STRIKE_H
 #define STRIKE_H
 
+#include <phonon>
 #include "e_bullet.h"
 #include "f_bullet.h"
 #include "enemy.h"
@@ -21,7 +22,9 @@ private:
     QList<f_bullet*> *fbl;
     flyer *f;
     bool flag;
-    QWebView *b;
+    Phonon::AudioOutput *audioOutput;
+    Phonon::MediaObject *mediaObject;
+
 };
 
 #endif // STRIKE_H

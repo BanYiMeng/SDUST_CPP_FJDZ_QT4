@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    setAttribute(Qt::WA_QuitOnClose);
     QGraphicsDropShadowEffect* shadowEffect = new QGraphicsDropShadowEffect(this);
     shadowEffect->setOffset(0,0);
     shadowEffect->setColor(QColor(0,0,0));
@@ -43,6 +44,7 @@ MainWindow::~MainWindow()
     delete txtInput;
     delete csf;
     delete ctxtInput;
+    delete mp;
 }
 
 void MainWindow::on_Cg_clicked()

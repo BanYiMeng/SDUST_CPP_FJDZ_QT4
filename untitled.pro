@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
-#QT       += phonon
+QT       += phonon
 QT       += webkit
 QT       += network
 

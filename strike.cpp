@@ -2,7 +2,10 @@
 
 strike::strike(QList<enemy*> *e,QList<e_bullet*> *eb,QList<f_bullet*> *fb,flyer *ff):el(e),ebl(eb),fbl(fb),f(ff),flag(false)
 {
-    b=new QWebView();
+    audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory);
+    mediaObject = new Phonon::MediaObject;
+    Phonon::createPath(mediaObject, audioOutput);
+    mediaObject->setCurrentSource(QUrl("/home/tester/resource/shot.mp3"));
 }
 
 int strike::e2fb()
@@ -16,6 +19,7 @@ int strike::e2fb()
             {
                 if (el->at(i)->llt(fbl->at(k)->llt(0))<=0)
                 {
+                    mediaObject->play();
                     t+=el->at(i)->getsc();
                     delete el->operator [](i);
                     delete fbl->operator [](k);
@@ -24,7 +28,6 @@ int strike::e2fb()
                     k=-1;
                     if (i>0)
                         i--;
-                    b->load(QUrl::fromLocalFile("/home/tester/resource/shot.html"));
                 }
                 else
                 {
@@ -84,5 +87,6 @@ bool strike::getflag(){
 
 strike::~strike()
 {
-    delete b;
+    mediaObject->deleteLater();
+    audioOutput->deleteLater();
 }
