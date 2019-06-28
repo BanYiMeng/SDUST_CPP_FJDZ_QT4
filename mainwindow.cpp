@@ -29,9 +29,11 @@ MainWindow::MainWindow(QWidget *parent) :
     csf=new QFile("./c_score");
     csf->open(QIODevice::ReadOnly | QIODevice::Text);
     ctxtInput=new QTextStream(csf);
-    ui->scores2->display(ctxtInput->readLine().toInt());
-    mp=new QWebView;
-    mp->load(QUrl::fromLocalFile("/home/tester/resource/main-bgm.html"));
+    audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory);
+    mediaObject = new Phonon::MediaObject;
+    Phonon::createPath(mediaObject, audioOutput);
+    mediaObject->setCurrentSource(QUrl("/home/tester/resource/main-bgm.mp3"));
+    mediaObject->play();
     connect(ui->Cg,SIGNAL(clicked()),this,SLOT(on_Cg_clicked()));
     connect(ui->About,SIGNAL(clicked()),this,SLOT(on_About_clicked()));
     connect(ui->Starter,SIGNAL(clicked()),this,SLOT(on_Starter_clicked()));
@@ -44,18 +46,15 @@ MainWindow::~MainWindow()
     delete txtInput;
     delete csf;
     delete ctxtInput;
-    delete mp;
+    delete audioOutput;
+    delete mediaObject;
 }
 
 void MainWindow::on_Cg_clicked()
 {
     if (duo==false)
     {
-        if (mp!=NULL)
-        {
-            delete mp;
-            mp=NULL;
-        }
+        mediaObject->stop();
         duo=true;
         wv=new QWebView;
         wv->setAttribute(Qt::WA_DeleteOnClose);
@@ -79,8 +78,7 @@ void MainWindow::Exit_Cg()
     }
     delete end;
     end=NULL;
-    mp=new QWebView;
-    mp->load(QUrl::fromLocalFile("/home/tester/resource/main-bgm.html"));
+    mediaObject->play();
 }
 
 void MainWindow::on_About_clicked()
@@ -100,11 +98,7 @@ void MainWindow::on_Starter_clicked()
     {
     duo=true;
     MainWindow::close();
-    if (mp!=NULL)
-    {
-        delete mp;
-        mp=NULL;
-    }
+    mediaObject->stop();
     p=new playwindow();
     p->setAttribute(Qt::WA_DeleteOnClose);
     p->show();
@@ -128,7 +122,6 @@ void MainWindow::Reboot(int i=0)
     freopen("./c_score","w",stdout);
     printf("%d",i);
     fclose(stdout);
-    mp=new QWebView;
-    mp->load(QUrl::fromLocalFile("/home/tester/resource/main-bgm.html"));
+    mediaObject->play();
     this->show();
 }

@@ -36,7 +36,7 @@ QUrl chapter::mr(int i=0)
 QString chapter::bp(int i=0)
 {
     if (i==0)
-        return QString(":/resource/boss_l1");
+        return QString("QPushButton{border-image:url(:/resource/boss_l1.png);}");
     else if (i==1)
         return QString("");
     else if (i==2)
@@ -44,7 +44,7 @@ QString chapter::bp(int i=0)
     else if (i==3)
         return QString("");
     else
-        return QString(":/resource/boss_l1");
+        return QString("QPushButton{border-image:url(:/resource/boss_l1.png);}");
 }
 
 QString chapter::bpm(int i=0)

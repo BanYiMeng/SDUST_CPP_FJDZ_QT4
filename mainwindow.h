@@ -3,6 +3,7 @@
 
 #include <QGraphicsDropShadowEffect>
 #include <QtWebKit>
+#include <phonon>
 #include "playwindow.h"
 
 
@@ -33,13 +34,14 @@ private:
     Ui::MainWindow *ui;
     bool duo=true;
     QWebView *wv=NULL;
-    QWebView *mp=NULL;
     QTimer *end=NULL;
     playwindow *p;
     QFile *sf;
     QFile *csf;
     QTextStream *txtInput;
     QTextStream *ctxtInput;
+    Phonon::AudioOutput *audioOutput;
+    Phonon::MediaObject *mediaObject;
     int hest=-1;
 };
 
