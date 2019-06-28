@@ -58,6 +58,7 @@ private:
     supply *su;
     boss *bo;
     bool bossflag;
+    int y;
 signals:
     void exited(int);
 };
