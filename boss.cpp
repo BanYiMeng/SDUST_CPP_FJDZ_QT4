@@ -55,11 +55,32 @@ void boss::fall(){
 void boss::shoot(QList<e_bullet*> *eblist){
     if (cx<599&&cx>1&&cy>1&&cy<799)
     {
-        for (int i=-60;i<=60;i+=15)
+        if (lt>5000)
         {
-            eblist->append(new e_bullet(cx-16,cy-16,24,24,-3,0,3,pt,QString(":/resource/enemy_bullet_l1")));
-            eblist->operator [](eblist->length()-1)->b1_l1(sp*sin(i*3.1415926/180),sp*cos(i*3.1415926/180));
-            eblist->operator [](eblist->length()-1)->show();
+            for (int i=-60;i<=60;i+=15)
+            {
+                eblist->append(new e_bullet(cx-16,cy-16,24,24,-3,0,3,pt,QString(":/resource/enemy_bullet_l1")));
+                eblist->operator [](eblist->length()-1)->b1_l1(sp*sin(i*3.1415926/180),sp*cos(i*3.1415926/180));
+                eblist->operator [](eblist->length()-1)->show();
+            }
+        }
+        else
+        {
+            qsrand(time(NULL));
+            int i=qrand()%3;
+            int x=-80;
+            for (;x<i*20-30;x+=10)
+            {
+                eblist->append(new e_bullet(cx-16,cy-16,24,24,-4,0,3,pt,QString(":/resource/enemy_bullet_l2")));
+                eblist->operator [](eblist->length()-1)->b1_l1(sp*sin(x*3.1415926/180),sp*cos(x*3.1415926/180));
+                eblist->operator [](eblist->length()-1)->show();
+            }
+            for (x+=30;x<=80;x+=10)
+            {
+                eblist->append(new e_bullet(cx-16,cy-16,24,24,-4,0,3,pt,QString(":/resource/enemy_bullet_l2")));
+                eblist->operator [](eblist->length()-1)->b1_l1(sp*sin(x*3.1415926/180),sp*cos(x*3.1415926/180));
+                eblist->operator [](eblist->length()-1)->show();
+            }
         }
     }
 }

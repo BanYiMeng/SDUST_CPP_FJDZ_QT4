@@ -9,7 +9,7 @@ bulletfactory::bulletfactory(QList<enemy*> *ee,flyobjects *mm,QWidget *pp=0):p(p
 void bulletfactory::e_creator(int x=0)
 {
     k=0;
-    mt->start(999/e->length());
+    mt->start(999/(e->length()+1));
 }
 
 void bulletfactory::f_creator(int x=0)

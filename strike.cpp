@@ -50,11 +50,10 @@ void strike::f2e(){
             if(f->llt(0)>0)
             {
                 if (f->llt(-el->at(i)->llt(0))<=0){
-                    f->fall();
                     flag=true;
                 }
             }
-            delete el->operator [](i);
+            el->at(i)->fall();
             el->removeAt(i);
             if (i>0)
                 i--;
@@ -69,7 +68,6 @@ void strike::f2eb(){
             if(f->llt(0)>0)
             {
                 if (f->llt(ebl->at(i)->llt(0))<=0){
-                    f->fall();
                     flag=true;
                 }
             }

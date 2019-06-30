@@ -50,6 +50,12 @@ playwindow::playwindow(QWidget *parent,int i,int x) :
     ui->hps->raise();
     s=new strike(pf->getel(),bf->getebl(),bf->getfbl(),f);
     su=new supply(-50,-50,60,60,0,0,2,this,f);
+    audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory);
+    mediaObject = new Phonon::MediaObject;
+    Phonon::createPath(mediaObject, audioOutput);
+    mediaObject->setCurrentSource(chapter::mr(i));
+    mediaObject->play();
+    connect(mediaObject,SIGNAL(finished()),this,SLOT(replay()));
     connect(slow,SIGNAL(timeout()),this,SLOT(slows()));
     connect(ref,SIGNAL(timeout()),this,SLOT(again()));
     connect(ref,SIGNAL(timeout()),this,SLOT(keytimer()));
@@ -65,6 +71,8 @@ playwindow::~playwindow()
     mid->deleteLater();
     slow->deleteLater();
     bos->deleteLater();
+    mediaObject->deleteLater();
+    audioOutput->deleteLater();
     delete pressedkeys;
     delete bga;
     delete bgb;
@@ -238,4 +246,9 @@ void playwindow::showboss(){
 void playwindow::bbos(){
      bo->shoot(bf->getebl());
      ui->bosshp->setValue(bo->llt(0));
+}
+
+void playwindow::replay()
+{
+    mediaObject->play();
 }

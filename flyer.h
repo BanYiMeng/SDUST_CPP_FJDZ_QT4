@@ -15,7 +15,6 @@ public:
     flyer(double,double,int,int,int,int,double,QWidget *);
     ~flyer();
     void paint();
-    bool fall();
     void shoot();
     void move(QString);
     void wudi();

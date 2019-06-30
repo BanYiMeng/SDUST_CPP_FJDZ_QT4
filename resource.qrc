@@ -25,5 +25,9 @@
         <file>resource/boss_l3_mod.png</file>
         <file>resource/boss_l4_mod.png</file>
         <file>resource/bulletboom.gif</file>
+        <file>resource/enemy_bullet_l2.png</file>
+        <file>resource/boss_l2.png</file>
+        <file>resource/boss_l3.png</file>
+        <file>resource/boss_l4.png</file>
     </qresource>
 </RCC>

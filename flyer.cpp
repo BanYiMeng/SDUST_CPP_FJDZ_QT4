@@ -10,11 +10,6 @@ flyer::~flyer(){
 
 }
 
-bool flyer::fall(){
-    pix->load("JPG");
-    return true;
-}
-
 void flyer::move(QString s){
     if(s=="up"&&y>0)
         y-=3;

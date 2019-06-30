@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QtCore>
 #include <QtWebKit>
+#include <phonon>
 #include "flyer.h"
 #include "background.h"
 #include "chapter.h"
@@ -46,6 +47,8 @@ private slots:
     void showboss();
 
     void bbos();
+
+    void replay();
 private:
     Ui::playwindow *ui;
     background *bga,*bgb;
@@ -63,6 +66,8 @@ private:
     int yhp;
     QWebView *wv=NULL;
     int wb=31;
+    Phonon::AudioOutput *audioOutput;
+    Phonon::MediaObject *mediaObject;
 signals:
     void exited(int);
     void pass(int);

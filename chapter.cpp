@@ -22,15 +22,15 @@ QString chapter::bgr(int i=0)
 QUrl chapter::mr(int i=0)
 {
     if (i==0)
-        return QUrl();
+        return QUrl::fromLocalFile("/home/tester/resource/b1.mp3");
     else if (i==1)
-        return QUrl();
+        return QUrl::fromLocalFile("/home/tester/resource/b2.mp3");
     else if (i==2)
-        return QUrl();
+        return QUrl::fromLocalFile("/home/tester/resource/b3.mp3");
     else if (i==3)
-        return QUrl();
+        return QUrl::fromLocalFile("/home/tester/resource/b4.mp3");
     else
-        return QUrl();
+        return QUrl::fromLocalFile("/home/tester/resource/b5.mp3");
 }
 
 QString chapter::bp(int i=0)

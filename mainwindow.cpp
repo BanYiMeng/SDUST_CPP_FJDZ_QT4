@@ -130,6 +130,7 @@ void MainWindow::Reboot(int i=0)
 
 void MainWindow::passed(int i=0)
 {
+    ui->Starter->setText(QString::fromUtf8("进入下一章"));
     sc=i;
     ch++;
 }
