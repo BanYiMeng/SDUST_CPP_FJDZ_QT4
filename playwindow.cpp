@@ -13,7 +13,10 @@ playwindow::playwindow(QWidget *parent) :
     bo = new boss(0,-200,256,256,10000,0,3,this,chapter::bpm(0));
     ui->bosss->setStyleSheet(chapter::bp(0));
     ui->bosss->raise();
+    ui->bosshp->raise();
+    ui->bosshp->setMaximum(10000);
     y=ui->bosss->y();
+    yhp = ui->bosshp->y();
     bossflag=false;
     f->show();
     bga->show();
@@ -149,8 +152,10 @@ void playwindow::again()
     bgb->move();
     f->setmove();
     if(bossflag==true){
-        if(y<=0)
+        if(y<=0){
             ui->bosss->move(520,++y);
+            ui->bosshp->move(520,++yhp);
+        }
         bo->move();
         if(bo->strike(bf->getfbl()))
         {
@@ -211,4 +216,5 @@ void playwindow::showboss(){
 
 void playwindow::bbos(){
      bo->shoot(bf->getebl());
+     ui->bosshp->setValue(bo->llt(0));
 }

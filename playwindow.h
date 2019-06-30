@@ -59,6 +59,7 @@ private:
     boss *bo;
     bool bossflag;
     int y;
+    int yhp;
 signals:
     void exited(int);
 };
