@@ -60,7 +60,6 @@ playwindow::playwindow(QWidget *parent,int i,int x) :
 
 playwindow::~playwindow()
 {
-    setWindowTitle("stopping...");
     ref->deleteLater();
     im->deleteLater();
     mid->deleteLater();
@@ -120,7 +119,17 @@ void playwindow::keyReleaseEvent(QKeyEvent *ev){
 
 void playwindow::closeEvent(QCloseEvent *event=0)
 {
+    im->stop();
+    ref->stop();
+    mid->stop();
+    slow->stop();
+    bos->stop();
     emit exited(f->getsc());
+    setWindowTitle("stopping...");
+    QEventLoop loop;
+    QTimer::singleShot(501, &loop, SLOT(quit()));
+    loop.exec();
+
 }
 
 void playwindow::endchoice()
@@ -222,7 +231,7 @@ void playwindow::showboss(){
     bo->show();
     ui->bosss->show();
     mid->stop();
-    mid->start(2001);
+    mid->start(20001);
     bos->start(1111);
 }
 

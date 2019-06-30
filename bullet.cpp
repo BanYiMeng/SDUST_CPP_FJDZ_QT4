@@ -36,8 +36,7 @@ void Bullet::fall()
 
 void Bullet::remover()
 {
-    qm->stop();
-    ql->deleteLater();
-    qm->deleteLater();
+    delete ql;
+    delete qm;
     this->deleteLater();
 }
