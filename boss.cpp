@@ -63,3 +63,5 @@ void boss::shoot(QList<e_bullet*> *eblist){
         }
     }
 }
+
+

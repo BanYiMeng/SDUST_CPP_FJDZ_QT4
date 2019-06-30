@@ -60,3 +60,17 @@ QString chapter::bpm(int i=0)
     else
         return QString(":/resource/boss_l1_mod");
 }
+
+int chapter::bhp(int i=0)
+{
+    if (i==0)
+        return 10000;
+    else if (i==1)
+        return 12500;
+    else if (i==2)
+        return 15000;
+    else if (i==3)
+        return 20000;
+    else
+        return 10000;
+}
