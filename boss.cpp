@@ -17,14 +17,14 @@ bool boss::strike(QList<f_bullet*>* ql){
             if ((r+ql->at(i)->getr())*(r+ql->at(i)->getr())>((cx-ql->at(i)->getcx())*(cx-ql->at(i)->getcx())+(cy-ql->at(i)->getcy())*(cy-ql->at(i)->getcy()))){
                 if (llt(ql->at(i)->llt(0))<=0)
                 {
-                    delete ql->operator [](i);
+                    ql->at(i)->fall();
                     ql->removeAt(i);
                     i=-1;
                     return true;
                 }
                 else
                 {
-                   delete ql->operator [](i);
+                   ql->at(i)->fall();
                    ql->removeAt(i);
                    if (i>=0)
                        i--;

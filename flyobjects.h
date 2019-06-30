@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QObject>
 #include <QWidget>
+#include <QTimer>
 #include <QString>
 #include <QFrame>
 #include <QPixmap>

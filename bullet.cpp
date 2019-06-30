@@ -3,12 +3,10 @@
 
 Bullet::Bullet(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc=0,double pp=0,QWidget *p=0,QString b=0):flyobjects(xx,yy,ww,hh,tt,cc,pp,p),sx(0),sy(0)
 {
+    ql = new QLabel(p);
+    ql->resize(30,30);
     pix=new QPixmap(b);
 
-}
-
-Bullet::~Bullet()
-{
 }
 
  void Bullet::setp(flyobjects *in)
@@ -25,3 +23,21 @@ void Bullet::setmove()
     cy=y-1;
 }
 
+void Bullet::fall()
+{
+    qm = new QMovie(special::boom(sc));
+    QTimer::singleShot(special::boom_T(sc),this,SLOT(remover()));
+    frame->hide();
+    ql->setMovie(qm);
+    ql->move(x,y);
+    ql->show();
+    qm->start();
+}
+
+void Bullet::remover()
+{
+    qm->stop();
+    ql->deleteLater();
+    qm->deleteLater();
+    this->deleteLater();
+}

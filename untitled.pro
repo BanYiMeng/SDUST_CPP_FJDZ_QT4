@@ -24,14 +24,14 @@ SOURCES += main.cpp\
     special.cpp \
     boss.cpp \
     chapter.cpp \
-    bullet.cpp \
     planefatory.cpp \
     e_bullet.cpp \
     f_bullet.cpp \
     strike.cpp \
     bulletfactory.cpp \
     enemy.cpp \
-    flyer.cpp
+    flyer.cpp \
+    bullet.cpp
 
 HEADERS  += mainwindow.h \
     flyobjects.h \
@@ -41,14 +41,14 @@ HEADERS  += mainwindow.h \
     special.h \
     boss.h \
     chapter.h \
-    bullet.h \
     planefatory.h \
     e_bullet.h \
     f_bullet.h \
     strike.h \
     bulletfactory.h \
     enemy.h \
-    flyer.h
+    flyer.h \
+    bullet.h
 
 FORMS    += mainwindow.ui \
     playwindow.ui

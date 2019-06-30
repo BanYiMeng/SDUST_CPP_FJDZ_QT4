@@ -49,7 +49,8 @@ void enemy::fall()
 
 void enemy::remover()
 {
-    delete qm;
-    delete ql;
+    qm->stop();
+    ql->deleteLater();
+    qm->deleteLater();
     this->deleteLater();
 }
