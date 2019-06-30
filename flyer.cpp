@@ -37,6 +37,14 @@ void flyer::setsc(int i=0)
 
 int flyer::optt(int i=0)
 {
+    if(i!=0&&t+i==2){
+        backup=t;
+        QTimer::singleShot(10001,this,SLOT(changet()));
+    }
     t+=i;
     return t;
+}
+
+void flyer::changet(){
+    t=backup;
 }

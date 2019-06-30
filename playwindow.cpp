@@ -30,7 +30,7 @@ playwindow::playwindow(QWidget *parent) :
     mid=new QTimer(this);
     mid->start(1111);
     slow=new QTimer(this);
-    slow->start(60001);
+    slow->start(6001);
     bos=new QTimer(this);
     pf=new planefatory(this);
     bf=new bulletfactory(pf->enemyfactory(-1),f,this);
