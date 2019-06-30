@@ -66,6 +66,7 @@ private:
     int yhp;
     QWebView *wv=NULL;
     int wb=31;
+    int lsc=0;
     Phonon::AudioOutput *audioOutput;
     Phonon::MediaObject *mediaObject;
 signals:

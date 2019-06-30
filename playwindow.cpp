@@ -17,6 +17,7 @@ playwindow::playwindow(QWidget *parent,int i,int x) :
         wv->showFullScreen();
     }
     wb+=x+i*101;
+    lsc=x-i*10;
     bga=new background(0,0,600,800,0,0,0,this,chapter::bgr(i));
     bgb=new background(0,-800,600,800,0,0,0,this,chapter::bgr(i));
     f=new flyer(270,649,60,95,8,x,0,this);
@@ -227,7 +228,7 @@ void playwindow::mids()
         bossflag=true;
     }
     bf->e_creator(0);
-    pf->enemyfactory(f->getsc());
+    pf->enemyfactory(f->getsc()-lsc);
 }
 
 void playwindow::slows()
