@@ -4,6 +4,7 @@
 #include <QKeyEvent>
 #include <QMessageBox>
 #include <QtCore>
+#include <QtWebKit>
 #include "flyer.h"
 #include "background.h"
 #include "chapter.h"
@@ -22,7 +23,7 @@ class playwindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit playwindow(QWidget *parent,int);
+    explicit playwindow(QWidget *parent,int,int);
     ~playwindow();
     virtual void keyPressEvent(QKeyEvent *ev);
     virtual void keyReleaseEvent(QKeyEvent *ev);
@@ -60,9 +61,11 @@ private:
     bool bossflag;
     int y;
     int yhp;
+    QWebView *wv=NULL;
+    int wb=31;
 signals:
     void exited(int);
-    void pass();
+    void pass(int);
 };
 
 #endif // PLAYWINDOW_H

@@ -30,7 +30,7 @@ private slots:
 
     void Reboot(int);
 
-    void passed();
+    void passed(int);
 
 private:
     Ui::MainWindow *ui;
@@ -46,6 +46,7 @@ private:
     Phonon::MediaObject *mediaObject;
     int hest=-1;
     int ch=0;
+    int sc=0;
 };
 
 #endif // MAINWINDOW_H

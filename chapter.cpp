@@ -10,11 +10,11 @@ QString chapter::bgr(int i=0)
     if (i==0)
         return QString(":/resource/playbackground");
     else if (i==1)
-        return QString("");
+        return QString(":/resource/-1.png");
     else if (i==2)
-        return QString("");
+        return QString(":/resource/-1.png");
     else if (i==3)
-        return QString("");
+        return QString(":/resource/-1.png");
     else
         return QString(":/resource/playbackground");
 }
@@ -73,4 +73,14 @@ int chapter::bhp(int i=0)
         return 20000;
     else
         return 10000;
+}
+
+QUrl chapter::vb(int i=0)
+{
+    if (i==1)
+        return QUrl::fromLocalFile("/home/tester/resource/c1.html");
+    else if (i==2)
+        return QUrl::fromLocalFile("/home/tester/resource/c2.html");
+    else if (i==3)
+        return QUrl::fromLocalFile("/home/tester/resource/c3.html");
 }

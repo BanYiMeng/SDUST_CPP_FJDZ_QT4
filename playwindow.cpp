@@ -1,15 +1,25 @@
 #include "playwindow.h"
 #include "ui_playwindow.h"
 
-playwindow::playwindow(QWidget *parent,int i) :
+playwindow::playwindow(QWidget *parent,int i,int x) :
     QWidget(parent),
     ui(new Ui::playwindow)
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon(":/resource/logo"));
+    if (i<4&&i!=0)
+    {
+        wv=new QWebView(this);
+        wv->move(-10,-10);
+        wv->resize(620,820);
+        wv->setWindowFlags(Qt::FramelessWindowHint);
+        wv->load(chapter::vb(i));
+        wv->showFullScreen();
+    }
+    wb+=x+i*101;
     bga=new background(0,0,600,800,0,0,0,this,chapter::bgr(i));
     bgb=new background(0,-800,600,800,0,0,0,this,chapter::bgr(i));
-    f=new flyer(270,649,60,95,8,0,0,this);
+    f=new flyer(270,649,60,95,8,x,0,this);
     bo = new boss(0,-200,256,256,chapter::bhp(0),0,3,this,chapter::bpm(i));
     ui->bosss->setStyleSheet(chapter::bp(i));
     ui->bosss->raise();
@@ -135,7 +145,7 @@ void playwindow::gameover(){
     slow->stop();
     bos->stop();
     QMessageBox::about(NULL,"NiuBi","Congratulations!");
-    emit pass();
+    emit pass(f->getsc());
     if(QMessageBox::Ok){
         close();
     }
@@ -195,7 +205,7 @@ void playwindow::keytimer2()
 
 void playwindow::mids()
 {
-    if(f->getsc()>=15&&bossflag==false){
+    if(f->getsc()>=wb&&bossflag==false){
         showboss();
         bossflag=true;
     }
@@ -212,6 +222,7 @@ void playwindow::showboss(){
     bo->show();
     ui->bosss->show();
     mid->stop();
+    mid->start(2001);
     bos->start(1111);
 }
 
