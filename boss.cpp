@@ -2,6 +2,7 @@
 
 boss::boss(double xx=0,double yy=0,int ww=0,int hh=0,int tt=0,int cc=0,double pp=0,QWidget *p=0,const QString &in=0):flyobjects(xx,yy,ww,hh,tt,cc,pp,p),pt(p)
 {
+    r/=2;
     pix = new QPixmap(in);
     frame->setWindowFlags(Qt::WindowStaysOnTopHint);
     direct=1;

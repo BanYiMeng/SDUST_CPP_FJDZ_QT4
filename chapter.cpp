@@ -38,11 +38,11 @@ QString chapter::bp(int i=0)
     if (i==0)
         return QString("QPushButton{border-image:url(:/resource/boss_l1.png);}");
     else if (i==1)
-        return QString("");
+        return QString("QPushButton{border-image:url(:/resource/boss_l2.png);}");
     else if (i==2)
-        return QString("");
+        return QString("QPushButton{border-image:url(:/resource/boss_l3.png);}");
     else if (i==3)
-        return QString("");
+        return QString("QPushButton{border-image:url(:/resource/boss_l1.png);}");
     else
         return QString("QPushButton{border-image:url(:/resource/boss_l1.png);}");
 }
@@ -52,11 +52,11 @@ QString chapter::bpm(int i=0)
     if (i==0)
         return QString(":/resource/boss_l1_mod");
     else if (i==1)
-        return QString("");
+        return QString(":/resource/boss_l2_mod");
     else if (i==2)
-        return QString("");
+        return QString(":/resource/boss_l3_mod");
     else if (i==3)
-        return QString("");
+        return QString(":/resource/boss_l1_mod");
     else
         return QString(":/resource/boss_l1_mod");
 }

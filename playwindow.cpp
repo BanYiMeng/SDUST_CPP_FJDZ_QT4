@@ -9,8 +9,8 @@ playwindow::playwindow(QWidget *parent) :
     this->setWindowIcon(QIcon(":/resource/logo"));
     bga=new background(0,0,600,800,0,0,0,this,chapter::bgr(0));
     bgb=new background(0,-800,600,800,0,0,0,this,chapter::bgr(0));
-    f=new flyer(270,649,60,82,8,0,0,this);
-    bo = new boss(0,-200,256,191,10000,0,3,this,chapter::bpm(0));
+    f=new flyer(270,649,60,95,8,0,0,this);
+    bo = new boss(0,-200,256,256,10000,0,3,this,chapter::bpm(0));
     ui->bosss->setStyleSheet(chapter::bp(0));
     ui->bosss->raise();
     y=ui->bosss->y();

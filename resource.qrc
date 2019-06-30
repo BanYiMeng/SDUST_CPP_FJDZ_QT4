@@ -21,5 +21,8 @@
         <file>resource/enemy_l1_b.gif</file>
         <file>resource/enemy_l2_b.gif</file>
         <file>resource/enemy_l3_b.gif</file>
+        <file>resource/boss_l2_mod.png</file>
+        <file>resource/boss_l3_mod.png</file>
+        <file>resource/boss_l4_mod.png</file>
     </qresource>
 </RCC>
