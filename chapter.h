@@ -15,6 +15,7 @@ public:
     static QUrl mr(int);
     static QString bp(int);
     static QString bpm(int);
+    static int bhp(int);
 private:
 };
 
