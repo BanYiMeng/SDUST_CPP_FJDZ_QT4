@@ -30,6 +30,8 @@ private slots:
 
     void Reboot(int);
 
+    void passed();
+
 private:
     Ui::MainWindow *ui;
     bool duo=true;
@@ -43,6 +45,7 @@ private:
     Phonon::AudioOutput *audioOutput;
     Phonon::MediaObject *mediaObject;
     int hest=-1;
+    int ch=0;
 };
 
 #endif // MAINWINDOW_H

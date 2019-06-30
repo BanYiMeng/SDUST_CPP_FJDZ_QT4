@@ -22,7 +22,7 @@ class playwindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit playwindow(QWidget *parent = 0);
+    explicit playwindow(QWidget *parent,int);
     ~playwindow();
     virtual void keyPressEvent(QKeyEvent *ev);
     virtual void keyReleaseEvent(QKeyEvent *ev);
@@ -62,6 +62,7 @@ private:
     int yhp;
 signals:
     void exited(int);
+    void pass();
 };
 
 #endif // PLAYWINDOW_H

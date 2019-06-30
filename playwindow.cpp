@@ -1,17 +1,17 @@
 #include "playwindow.h"
 #include "ui_playwindow.h"
 
-playwindow::playwindow(QWidget *parent) :
+playwindow::playwindow(QWidget *parent,int i) :
     QWidget(parent),
     ui(new Ui::playwindow)
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon(":/resource/logo"));
-    bga=new background(0,0,600,800,0,0,0,this,chapter::bgr(0));
-    bgb=new background(0,-800,600,800,0,0,0,this,chapter::bgr(0));
+    bga=new background(0,0,600,800,0,0,0,this,chapter::bgr(i));
+    bgb=new background(0,-800,600,800,0,0,0,this,chapter::bgr(i));
     f=new flyer(270,649,60,95,8,0,0,this);
-    bo = new boss(0,-200,256,256,chapter::bhp(0),0,3,this,chapter::bpm(0));
-    ui->bosss->setStyleSheet(chapter::bp(0));
+    bo = new boss(0,-200,256,256,chapter::bhp(0),0,3,this,chapter::bpm(i));
+    ui->bosss->setStyleSheet(chapter::bp(i));
     ui->bosss->raise();
     ui->bosshp->raise();
     ui->bosshp->setMaximum(10000);
@@ -135,6 +135,7 @@ void playwindow::gameover(){
     slow->stop();
     bos->stop();
     QMessageBox::about(NULL,"NiuBi","Congratulations!");
+    emit pass();
     if(QMessageBox::Ok){
         close();
     }

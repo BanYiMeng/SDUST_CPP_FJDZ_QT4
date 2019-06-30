@@ -99,10 +99,11 @@ void MainWindow::on_Starter_clicked()
     duo=true;
     MainWindow::close();
     mediaObject->stop();
-    p=new playwindow();
+    p=new playwindow(0,ch);
     p->setAttribute(Qt::WA_DeleteOnClose);
     p->show();
     connect(p,SIGNAL(exited(int)),this,SLOT(Reboot(int)));
+    connect(p,SIGNAL(pass()),this,SLOT(passed()));
     }
     else
         duo=false;
@@ -124,4 +125,9 @@ void MainWindow::Reboot(int i=0)
     fclose(stdout);
     mediaObject->play();
     this->show();
+}
+
+void MainWindow::passed()
+{
+    ch++;
 }

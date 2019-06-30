@@ -42,7 +42,7 @@ QString chapter::bp(int i=0)
     else if (i==2)
         return QString("QPushButton{border-image:url(:/resource/boss_l3.png);}");
     else if (i==3)
-        return QString("QPushButton{border-image:url(:/resource/boss_l1.png);}");
+        return QString("QPushButton{border-image:url(:/resource/boss_l4.png);}");
     else
         return QString("QPushButton{border-image:url(:/resource/boss_l1.png);}");
 }
@@ -56,7 +56,7 @@ QString chapter::bpm(int i=0)
     else if (i==2)
         return QString(":/resource/boss_l3_mod");
     else if (i==3)
-        return QString(":/resource/boss_l1_mod");
+        return QString(":/resource/boss_l4_mod");
     else
         return QString(":/resource/boss_l1_mod");
 }
