@@ -32,6 +32,8 @@ private slots:
 
     void passed(int);
 
+    void on_hint_clicked();
+
 private:
     Ui::MainWindow *ui;
     bool duo=true;

@@ -37,6 +37,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->Cg,SIGNAL(clicked()),this,SLOT(on_Cg_clicked()));
     connect(ui->About,SIGNAL(clicked()),this,SLOT(on_About_clicked()));
     connect(ui->Starter,SIGNAL(clicked()),this,SLOT(on_Starter_clicked()));
+    connect(ui->hint,SIGNAL(clicked()),this,SLOT(on_hint_clicked()));
 }
 
 MainWindow::~MainWindow()
@@ -131,4 +132,19 @@ void MainWindow::passed(int i=0)
 {
     sc=i;
     ch++;
+}
+
+void MainWindow::on_hint_clicked()
+{
+    if (duo==false)
+    {
+        mediaObject->stop();
+        duo=true;
+        wv=new QWebView;
+        wv->setAttribute(Qt::WA_DeleteOnClose);
+        wv->load(QUrl::fromLocalFile("/home/tester/resource/h.html"));
+        wv->showFullScreen();
+    }
+    else
+        duo=false;
 }
