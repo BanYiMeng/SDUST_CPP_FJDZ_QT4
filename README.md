@@ -1,2 +1,4 @@
 # SDUST_CPP_FJDZ_QT3
-TEST
+山东科技大学 大一下暑假实践 飞机大战
+部分资源文件未上传
+环境:QT4+Linux
